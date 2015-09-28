@@ -26,10 +26,15 @@ None. And I don't plan on making one. Just pull up requests on github or email m
 # Python Libraries Required
 
 1.) BeautifulSoup 4.3.2 (Included Withing This Script)
+
 2.) requests (Included Withing This Script)
+
 3.) Time (Already There In Python)
+
 4.) xml.etree.ElementTree (Already There In Python)
+
 5.) FileInput (Already There In Python)
+
 6.) OS (Already There In Python)
 
 So, You don't really Need to install or download anything extra.
@@ -38,9 +43,13 @@ So, You don't really Need to install or download anything extra.
 # How do I do what I have to do? (Simple Guide)
 
 1.) Run "HuluSubs.py" File. (Run within CMD if you want to see the errors,if any).
+
 2.) Paste the video Link when it asks . For Ex :- http://www.hulu.com/watch/815743
+
 Note :- Remove all the special characters from the URL,if any. Sometimes there are certain special values like "#0#1#78" etc.
+
 3.) After entering the url, press 'ENTER' and sit back while it Downloads the Subs.
+
 4.) Check this folder and you'll see your "vtt" Subtitles.
 
 
@@ -50,7 +59,9 @@ This is a script I made in my free time to ease my job of getting subs for some 
 Anyways, Some planned updates are :
 
 1.) Converting subs to "srt" format for easy viewing.
+
 2.) Downloading subs for "Subscription" based videos.
+
 3.) Remove geo-restriction (if any).
 
 
@@ -59,6 +70,9 @@ x[at]psychoticelites.com
 
 Finally, some emails for webscrappers and shitty spam bots :
 iam@justkidding.com
+
 youknow@thisisfree.com
+
 okay@stopnow.com
+
 this@mylastattempatsomethingfunny.com
