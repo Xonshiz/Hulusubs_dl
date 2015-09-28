@@ -25,7 +25,7 @@ None. And I don't plan on making one. Just pull up requests on github or email m
 
 # Python Libraries Required
 
-1.) BeautifulSoup 4.3.2 (Included Withing This Script)
+1.) BeautifulSoup 4.3.2 (Included Within This Script)
 
 2.) requests (Included Withing This Script)
 
