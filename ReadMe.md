@@ -42,7 +42,7 @@ So, You don't really Need to install or download anything extra.
 
 # How do I do what I have to do? (Simple Guide)
 
-1.) Run "HuluSubs.py" File. (Run within CMD if you want to see the errors,if any).
+1.) Run "HuluSubs.pyc" File. (Run within CMD if you want to see the errors,if any).
 
 2.) Paste the video Link when it asks . For Ex :- http://www.hulu.com/watch/815743
 
@@ -55,7 +55,7 @@ Note :- Remove all the special characters from the URL,if any. Sometimes there a
 
 # Features To Come / Planned Updates
 
-This is a script I made in my free time to ease my job of getting subs for some korean drama series (Yes, I watch 'em).
+This is a script I made in my free time to ease my job of getting subs for some korean drama series (Yes, I watch 'em).So, I'm not sure if I'll work on this constantly or not.
 Anyways, Some planned updates are :
 
 1.) Converting subs to "srt" format for easy viewing.
