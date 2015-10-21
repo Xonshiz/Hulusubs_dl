@@ -9,7 +9,7 @@ I'd recommend looking at ffmpeg, if you want easy and free solution to this.
 
 2.) This Script only downloads subs from videos that are FREE to stream.
 
-3.) Country restrictions Apply (I Guess). Please report if it does (It shouldn't though)
+~~3.) Country restrictions Apply (I Guess). Please report if it does (It shouldn't though)~~
 
 4.) Read the "Features To Come" (Look At Bottom).
 
@@ -62,8 +62,14 @@ Anyways, Some planned updates are :
 
 2.) Downloading subs for "Subscription" based videos.
 
-3.) Remove geo-restriction (if any).
+~~3.) Remove geo-restriction (if any).~~
 
+
+# Changelog
+
+1.) Geo Restriction is no more active.
+
+2.) Some Major Bug Fix. (Now, videos with special characters in the title can be ripped, only subs are ripped, and not videos.)
 
 If you have any queries or want me to make a script to automate something, feel free to drop me an email at :
 x[at]psychoticelites.com
