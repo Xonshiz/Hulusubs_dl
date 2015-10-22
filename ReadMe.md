@@ -5,7 +5,7 @@ Little Python Script to download subtitles from hulu. Made for educational purpo
 # POINT TO REMEMBER
 
 1.) This script currently downloads the subs in VTT format. You'll have to manually convert them to srt or whatever format you want them in. Use the VTT2SRT.exe in this folder to convert the subtitles (Simplest and the easiest way).
-~~I'd recommend looking at ffmpeg, if you want easy and free solution to this. ~~
+~~I'd recommend looking at ffmpeg, if you want easy and free solution to this.~~
 
 ~~2.) This Script only downloads subs from videos that are FREE to stream.~~
 
@@ -71,7 +71,7 @@ Anyways, Some planned updates are :
 
 2.) Some Major Bug Fix. (Now, videos with special characters in the title can be ripped, only subs are ripped, and not videos.)
 
-3.) Added Vtt2SRT.exe for easy conversion of VTT subs to SRT.
+3.) Added Vtt2SRT.exe for easy conversion of VTT subs to SRT. (Thanx Luiz for sending the link to EXE)
 
 If you have any queries or want me to make a script to automate something, feel free to drop me an email at :
 x[at]psychoticelites.com
