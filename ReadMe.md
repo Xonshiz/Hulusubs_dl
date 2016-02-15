@@ -41,6 +41,7 @@ So, You don't really Need to install or download anything extra.
 
 
 # How do I do what I have to do? (Simple Guide)
+Watch this video if you can't get what I wrote below : https://www.youtube.com/watch?v=iqH_vXMbPHo
 
 1.) Run "HuluSubs.pyc" File. (Run within CMD if you want to see the errors,if any).
 
