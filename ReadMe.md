@@ -4,8 +4,8 @@ Little Python Script to download subtitles from hulu. Made for educational purpo
 
 # POINT TO REMEMBER
 
-1.) This script currently downloads the subs in VTT format. You'll have to manually convert them to srt or whatever format you want them in. Use the VTT2SRT.exe in this folder to convert the subtitles (Simplest and the easiest way).
-~~I'd recommend looking at ffmpeg, if you want easy and free solution to this.~~
+1.) ~~This script currently downloads the subs in VTT format. You'll have to manually convert them to srt or whatever format you want them in. Use the VTT2SRT.exe in this folder to convert the subtitles (Simplest and the easiest way).
+I'd recommend looking at ffmpeg, if you want easy and free solution to this.~~
 
 ~~2.) This Script only downloads subs from videos that are FREE to stream.~~
 
@@ -29,13 +29,11 @@ None. And I don't plan on making one. Just pull up requests on github or email m
 
 2.) requests (Included Within This Script)
 
-3.) Time (Already There In Python)
+3.) OS (Already There In Python)
 
-4.) xml.etree.ElementTree (Already There In Python)
+4.) sys (Alread There In Python)
 
-5.) FileInput (Already There In Python)
-
-6.) OS (Already There In Python)
+5.) re (Alread There In Python)
 
 So, You don't really Need to install or download anything extra.
 
@@ -43,7 +41,7 @@ So, You don't really Need to install or download anything extra.
 # How do I do what I have to do? (Simple Guide)
 Watch this video if you can't get what I wrote below : https://www.youtube.com/watch?v=iqH_vXMbPHo
 
-1.) Run "HuluSubs.pyc" File. (Run within CMD if you want to see the errors,if any).
+1.) Run "HuluSubs.py" File. (Run within CMD if you want to see the errors,if any).
 
 2.) Paste the video Link when it asks . For Ex :- http://www.hulu.com/watch/815743
 
@@ -51,7 +49,7 @@ Note :- Remove all the special characters from the URL,if any. Sometimes there a
 
 3.) After entering the url, press 'ENTER' and sit back while it Downloads the Subs.
 
-4.) Check this folder and you'll see your "vtt" Subtitles.
+4.) Check this folder and you'll see your "SRT" ~~"vtt"~~ Subtitles.
 
 
 # Features To Come / Planned Updates
@@ -59,7 +57,9 @@ Note :- Remove all the special characters from the URL,if any. Sometimes there a
 This is a script I made in my free time to ease my job of getting subs for some korean drama series (Yes, I watch 'em).So, I'm not sure if I'll work on this constantly or not.
 Anyways, Some planned updates are :
 
-1.) Converting subs to "srt" format for easy viewing.
+1.) Show Batch Subs Downloading.
+
+~~1.) Converting subs to "srt" format for easy viewing.~~
 
 ~~2.) Downloading subs for "Subscription" based videos.~~
 
@@ -72,7 +72,13 @@ Anyways, Some planned updates are :
 
 2.) Some Major Bug Fix. (Now, videos with special characters in the title can be ripped, only subs are ripped, and not videos.)
 
-3.) Added Vtt2SRT.exe for easy conversion of VTT subs to SRT. (Thanx Luiz for sending the link to EXE)
+~~3.) Added Vtt2SRT.exe for easy conversion of VTT subs to SRT. (Thanx Luiz for sending the link to EXE)~~
+
+3.) Removed Vtt2SRT (No more needed).
+
+4.) Re-wrote the whole code for better flow.
+
+5.) Downloaded subs are in SRT format now.
 
 If you have any queries or want me to make a script to automate something, feel free to drop me an email at :
 x[at]psychoticelites.com
