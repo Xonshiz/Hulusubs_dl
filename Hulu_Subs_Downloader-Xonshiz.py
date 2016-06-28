@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 __author__      = "Xonshiz"
-__email__ = "x@psychoticelites.com"
+__email__ = "Xonshiz@psychoticelites.com"
 __website__ = "http://www.psychoticelites.com"
 __version__ = "v2.0"
 
@@ -79,8 +79,12 @@ def Sub_Lookup(Con_id,Final_EP_Num):
         else :
             SMI_File_Link = soup1.replace('<?xml version="1.0" encoding="utf-8"?><html><body><transcripts><en>','').replace('</en></transcripts></body></html>','').replace('<html><body><transcripts><en>','') # Remove lxml usage, hence, this fugly code with shit load of replace.
             VTT_Sub_Link = SMI_File_Link.replace('captions','captions_webvtt').replace('smi','vtt') # Changing things so we get URL to our subs
-            print "Downloading Subs From : ",VTT_Sub_Link # Nuffing Important
-            q3 = requests.get(VTT_Sub_Link)
+            head, sep, tail = VTT_Sub_Link.partition('.vtt')
+            print 'This is ', head
+            #print "Downloading Subs From : ",VTT_Sub_Link # Nuffing Important
+            print "Downloading Subs From : ",str(head)+'.vtt' # Nuffing Important
+            VTT_Sub_Link_Main = str(head)+'.vtt'
+            q3 = requests.get(VTT_Sub_Link_Main)
             soup3 = str(BeautifulSoup(q3.text,"lxml"))
             Subs_Data = soup3.replace('.',',').replace("<html><body><p>WEBVTT\n","").replace("--&gt;","-->").replace("</p></body></html>","").encode('utf8') # Conversion from VTT to SRT process 1
             File_Name = re.sub('[^A-Za-z0-9- ]+', '', Final_EP_Num) +'.srt' # Fix for "Special Characters" in The series name
