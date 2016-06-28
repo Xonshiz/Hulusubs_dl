@@ -1,22 +1,9 @@
 # Hulu Subs Downloader
 Little Python Script to download subtitles from hulu. Made for educational purposes (yeah,right).
 
+# What do I need to run this thing?
 
-# POINT TO REMEMBER
-
-1.) ~~This script currently downloads the subs in VTT format. You'll have to manually convert them to srt or whatever format you want them in. Use the VTT2SRT.exe in this folder to convert the subtitles (Simplest and the easiest way).
-I'd recommend looking at ffmpeg, if you want easy and free solution to this.~~
-
-~~2.) This Script only downloads subs from videos that are FREE to stream.~~
-
-~~3.) Country restrictions Apply (I Guess). Please report if it does (It shouldn't though)~~
-
-4.) Read the "Features To Come" (Look At Bottom).
-
-
-# Are there any threads for this thing?
-
-None. And I don't plan on making one. Just pull up requests on github or email me (Look At Bottom).
+Please run the "Setup.py" file first. It will install all the dependencies required for proper functioning of this script. I've used some external libraries to parse xml and do some stuff. So, run "setup.py" file first. This step needs to be executed only one time. However, if this shows any error, please feel free to contact me via xonshiz@psychoticelites.com
 
 
 # What do I need to run this thing?
@@ -34,6 +21,8 @@ None. And I don't plan on making one. Just pull up requests on github or email m
 4.) sys (Alread There In Python)
 
 5.) re (Alread There In Python)
+
+6.) lxml (Install via the setup.py file)
 
 So, You don't really Need to install or download anything extra.
 
@@ -59,11 +48,6 @@ Anyways, Some planned updates are :
 
 1.) Show Batch Subs Downloading.
 
-~~1.) Converting subs to "srt" format for easy viewing.~~
-
-~~2.) Downloading subs for "Subscription" based videos.~~
-
-~~3.) Remove geo-restriction (if any).~~
 
 
 # Changelog
@@ -80,14 +64,7 @@ Anyways, Some planned updates are :
 
 5.) Downloaded subs are in SRT format now.
 
+6.) Added the "Setup.py" file to fetch external libraries.
+
 If you have any queries or want me to make a script to automate something, feel free to drop me an email at :
-x[at]psychoticelites.com
-
-Finally, some emails for webscrappers and shitty spam bots :
-iam@justkidding.com
-
-youknow@thisisfree.com
-
-okay@stopnow.com
-
-this@mylastattempatsomethingfunny.com
+xonshiz[at]psychoticelites.com
