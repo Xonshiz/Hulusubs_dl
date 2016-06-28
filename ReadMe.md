@@ -6,6 +6,7 @@ Little Python Script to download subtitles from hulu. Made for educational purpo
 Please run the "Setup.py" file first. You need to pass an argument with it, so you better run it in a command prompt. It will install all the dependencies required for proper functioning of this script. I've used some external libraries to parse xml and do some stuff. So, run "setup.py" file first. This step needs to be executed only one time. However, if this shows any error, please feel free to contact me via xonshiz@psychoticelites.com
 
 The command : setup.py install
+
 Note : I take it that you are executing it from the same directory.
 
 
