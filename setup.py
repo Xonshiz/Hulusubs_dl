@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
 
 setup(name='Distutils',
       version='2.0',
@@ -8,5 +8,5 @@ setup(name='Distutils',
       author='Xonshiz',
       author_email='Xonshiz@psychoticelites.com',
       url='https://github.com/Xonshiz/Hulu-Subs-Downloader',
-      install_requires=['lxml','bs4','requests','re','os','sys']
+      install_requires=['lxml','bs4','requests']
      )
