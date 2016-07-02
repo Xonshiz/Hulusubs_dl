@@ -76,5 +76,7 @@ Anyways, Some planned updates are :
 
 6.) Added the "Setup.py" file to fetch external libraries.
 
+7.) Windows Binary added.
+
 If you have any queries or want me to make a script to automate something, feel free to drop me an email at :
 xonshiz[at]psychoticelites.com
