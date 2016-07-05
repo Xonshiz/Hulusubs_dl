@@ -38,11 +38,11 @@ So, You don't really Need to install or download anything extra.
 
 
 # How do I do what I have to do? (Simple Guide)
-Watch this video if you can't get what I wrote below : https://www.youtube.com/watch?v=iqH_vXMbPHo
+Watch this video if you can't get what I wrote below : https://www.youtube.com/watch?v=iqH_vXMbPHo (Will be updated soon!)
 
 1.) Run "HuluSubs.py" File. (Run within CMD if you want to see the errors,if any).
 
-2.) Paste the video Link when it asks . For Ex :- http://www.hulu.com/watch/815743
+2.) Paste the video Link when it asks . For Ex :- http://www.hulu.com/watch/815743 (Single Episode) and http://www.hulu.com/oh-my-ghostess (to download Subs for whole series)
 
 Note :- Remove all the special characters from the URL,if any. Sometimes there are certain special values like "#0#1#78" etc.
 
