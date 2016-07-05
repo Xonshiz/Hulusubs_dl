@@ -52,7 +52,9 @@ Note :- Remove all the special characters from the URL,if any. Sometimes there a
 
 # Known Issues
 
-1.) No error when there are no subs for a series/episode.
+1.) No error pops up when there are no subs for a series/episode.
+
+2.) Script is slow for "Batch Downloading", because of "PhantomJS" is being used to fetch the OuterHTML of the page.
 
 
 # Changelog
