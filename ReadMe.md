@@ -50,14 +50,9 @@ Note :- Remove all the special characters from the URL,if any. Sometimes there a
 
 4.) Check this folder and you'll see your "SRT" ~~"vtt"~~ Subtitles.
 
+# Known Issues
 
-# Features To Come / Planned Updates
-
-This is a script I made in my free time to ease my job of getting subs for some korean drama series (Yes, I watch 'em).So, I'm not sure if I'll work on this constantly or not.
-Anyways, Some planned updates are :
-
-1.) Show Batch Subs Downloading.
-
+1.) No error when there are no subs for a series/episode.
 
 
 # Changelog
@@ -77,6 +72,8 @@ Anyways, Some planned updates are :
 6.) Added the "Setup.py" file to fetch external libraries.
 
 7.) Windows Binary added.
+
+8.) Batch ripping of subs for whole series.
 
 If you have any queries or want me to make a script to automate something, feel free to drop me an email at :
 xonshiz[at]psychoticelites.com
