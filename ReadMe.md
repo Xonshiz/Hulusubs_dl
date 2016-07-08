@@ -1,6 +1,8 @@
 # Hulu Subs Downloader
 Little Python Script to download subtitles from hulu. Made for educational purposes (yeah,right).
 
+Watch How to use this : https://youtu.be/Ymrh99SUpUQ
+
 # Windows Binary (.EXE FILE)
 
 Windows users can download this .rar file which contains the "hulu Subs Downloader.exe" file along with everything else that is needed from this link : https://github.com/Xonshiz/Hulu-Subs-Downloader/blob/master/Hulu%20Subs%20Downloader%20-%20Windows%20Binary.rar?raw=true
@@ -41,7 +43,7 @@ So, You don't really Need to install or download anything extra.
 
 
 # How do I do what I have to do? (Simple Guide)
-Watch this video if you can't get what I wrote below : https://www.youtube.com/watch?v=iqH_vXMbPHo (Will be updated soon!)
+Watch this video if you can't get what I wrote below : https://youtu.be/Ymrh99SUpUQ
 
 1.) Run "HuluSubs.py" File. (Run within CMD if you want to see the errors,if any).
 
