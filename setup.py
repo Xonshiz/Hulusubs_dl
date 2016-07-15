@@ -6,11 +6,11 @@ silent = True
 buildOptions = dict(
         compressed = True,
         includes = ["re",  "gzip", "encodings.cp949", "encodings.utf_8", "encodings.ascii","glob","os","sys","selenium","requests","bs4","time","lxml", "lxml._elementpath", "lxml.etree"],
-        include_files = ["phantomjs.exe"],
-        bin_includes = ["phantomjs.exe"]
+        include_files = ["phantomjs.exe","ReadMe.md"],
+        bin_includes = ["phantomjs.exe","ReadMe.md"]
         )
 setup(name='Hulu Subs Downloader - Xonshiz',
-     version='3.0',
+     version='3.1',
       description='Little Python Script To Download Susb from HULU.',
       author='Xonshiz',
       author_email='Xonshiz@psychoticelites.com',
