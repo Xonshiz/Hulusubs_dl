@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hulu Subtitle Downloader by Xonshiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Hulu Subtitle Downloader</h1>
+      <h2 class="project-tagline">A Little script to download subtitles from HULU</h2>
+      <a href="https://github.com/Xonshiz/Hulu-Subs-Downloader" class="btn">View on GitHub</a>
+      <a href="https://github.com/Xonshiz/Hulu-Subs-Downloader/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Xonshiz/Hulu-Subs-Downloader/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="hulu-subs-downloader" class="anchor" href="#hulu-subs-downloader" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hulu Subs Downloader</h1>
+
+<p>Little Python Script to download subtitles from hulu. Made for educational purposes (yeah,right).</p>
+
+<p>Watch How to use this : <a href="https://youtu.be/Ymrh99SUpUQ">https://youtu.be/Ymrh99SUpUQ</a></p>
+
+<h1>
+<a id="windows-binary-exe-file" class="anchor" href="#windows-binary-exe-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Windows Binary (.EXE FILE)</h1>
+
+<p>Windows users can download this .rar file which contains the "hulu Subs Downloader.exe" file along with everything else that is needed from this link : <a href="https://github.com/Xonshiz/Hulu-Subs-Downloader/blob/master/Hulu%20Subs%20Downloader%20-%20Windows%20Binary.rar.rar?raw=true">CLICK HERE TO DOWNLOAD!</a></p>
+
+<p>Just extract this somewhere in a folder (don't extract in C:\ or the windows drive). And run "Hulu_Subs_Downloader-Xonshiz.exe" and follow the steps mentioned in "How do I do what I have to do?". Binary users don't need anything else to use this.</p>
+
+<h1>
+<a id="first-things-first" class="anchor" href="#first-things-first" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>First Things First!</h1>
+
+<p>Please run the "Setup.py" file first. You need to pass an argument with it, so you better run it in a command prompt. It will install all the dependencies required for proper functioning of this script. I've used some external libraries to parse xml and do some stuff. So, run "setup.py" file first. This step needs to be executed only one time. However, if this shows any error, please feel free to contact me via xonshiz[at]psychoticelites.com</p>
+
+<p>The command : setup.py install</p>
+
+<p>Note : I take it that you are executing it from the same directory.</p>
+
+<h1>
+<a id="what-do-i-need-to-run-this-thing" class="anchor" href="#what-do-i-need-to-run-this-thing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What do I need to run this thing?</h1>
+
+<p>1.) Python 2.7.x</p>
+
+<h1>
+<a id="python-libraries-required" class="anchor" href="#python-libraries-required" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Python Libraries Required</h1>
+
+<p>1.) BeautifulSoup 4.3.2 (Included Within This Script)</p>
+
+<p>2.) requests (Included Within This Script)</p>
+
+<p>3.) OS (Already There In Python)</p>
+
+<p>4.) sys (Alread There In Python)</p>
+
+<p>5.) re (Alread There In Python)</p>
+
+<p>6.) lxml (Install via the setup.py file)</p>
+
+<p>7.) Selenium (Install via the Setup.py File)</p>
+
+<p>So, You don't really Need to install or download anything extra.</p>
+
+<h1>
+<a id="how-do-i-do-what-i-have-to-do-simple-guide" class="anchor" href="#how-do-i-do-what-i-have-to-do-simple-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I do what I have to do? (Simple Guide)</h1>
+
+<p>Watch this video if you can't get what I wrote below : <a href="https://youtu.be/Ymrh99SUpUQ">https://youtu.be/Ymrh99SUpUQ</a></p>
+
+<p>1.) Run "HuluSubs.py" File. (Run within CMD if you want to see the errors,if any).</p>
+
+<p>2.) Paste the video Link when it asks . For Ex :- <a href="http://www.hulu.com/watch/815743">http://www.hulu.com/watch/815743</a> (Single Episode) and <a href="http://www.hulu.com/oh-my-ghostess">http://www.hulu.com/oh-my-ghostess</a> (to download Subs for whole series)</p>
+
+<p>Note :- Remove all the special characters from the URL,if any. Sometimes there are certain special values like "#0#1#78" etc.</p>
+
+<p>3.) After entering the url, press 'ENTER' and sit back while it Downloads the Subs.</p>
+
+<p>4.) Check this folder and you'll see your "SRT" <del>"vtt"</del> Subtitles.</p>
+
+<h1>
+<a id="known-issues" class="anchor" href="#known-issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Known Issues</h1>
+
+<p>1.) No error pops up when there are no subs for a series/episode.</p>
+
+<p>2.) Script is slow for "Batch Downloading", because "PhantomJS" is being used to fetch the OuterHTML of the page.</p>
+
+<h1>
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changelog</h1>
+
+<p>1.) Geo Restriction is no more active.</p>
+
+<p>2.) Some Major Bug Fix. (Now, videos with special characters in the title can be ripped, only subs are ripped, and not videos.)</p>
+
+<p><del>3.) Added Vtt2SRT.exe for easy conversion of VTT subs to SRT. (Thanx Luiz for sending the link to EXE)</del></p>
+
+<p>3.) Removed Vtt2SRT (No more needed).</p>
+
+<p>4.) Re-wrote the whole code for better flow.</p>
+
+<p>5.) Downloaded subs are in SRT format now.</p>
+
+<p>6.) Added the "Setup.py" file to fetch external libraries.</p>
+
+<p>7.) Windows Binary added.</p>
+
+<p>8.) Batch ripping of subs for whole series.</p>
+
+<p>9.) Changed the lookup parameter for the TITLE of the file. Fix for #2 Issue</p>
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<p>Script Author <a href="https://github.com/Xonshiz" class="user-mention">@Xonshiz</a></p>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Got any problem(s) or suggestion(s) for the script? Feel free to open up an issue or write to <a href="https://github.com/Xonshiz" class="user-mention">@Xonshiz</a> at : xonshiz[at]psychoticelites.com</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Xonshiz/Hulu-Subs-Downloader">Hulu Subtitle Downloader</a> is maintained by <a href="https://github.com/Xonshiz">Xonshiz</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
