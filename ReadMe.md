@@ -82,5 +82,7 @@ Note :- Remove all the special characters from the URL,if any. Sometimes there a
 
 8.) Batch ripping of subs for whole series.
 
+9.) Changed the lookup parameter for the TITLE of the file. Fix for #2 Issue
+
 If you have any queries or want me to make a script to automate something, feel free to drop me an email at :
 xonshiz[at]psychoticelites.com
