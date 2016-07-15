@@ -44,10 +44,13 @@ def Data_Lookup():
 
     with open('newfile.txt') as searchfile:
         for line in searchfile:
-            left,sep,right = line.partition('title')
+            left,sep,right = line.partition('<title>')
             if sep:
                 Episode_Number = right
-                Final_EP_Num = Episode_Number[7:].replace('| Hulu</title>','').replace('>','').replace("Online","")
+                print Episode_Number
+                Final_EP_Num = Episode_Number.replace('Watch','').replace('| Hulu</title>','').replace('Online','').strip()
+                print Final_EP_Num
+                #Final_EP_Num = Episode_Number[7:].replace('| Hulu</title>','').replace('>','').replace("Online","")
 
     return (Con_id,Final_EP_Num)            
 
@@ -77,7 +80,7 @@ def Sub_Lookup(Con_id,Final_EP_Num):
             q3 = requests.get(VTT_Sub_Link_Main)
             soup3 = str(BeautifulSoup(q3.text,"lxml"))
             Subs_Data = soup3.replace('.',',').replace("<html><body><p>WEBVTT\n","").replace("--&gt;","-->").replace("</p></body></html>","").encode('utf8') # Conversion from VTT to SRT process 1
-            File_Name = re.sub('[^A-Za-z0-9\-\ ]+', '', Final_EP_Num) +'.srt' # Fix for "Special Characters" in The series name
+            File_Name = re.sub('[^A-Za-z0-9\-\.\ ]+', '', Final_EP_Num) +'.srt' # Fix for "Special Characters" in The series name
             text_file = open(File_Name, "w")
             text_file.write(Subs_Data)
             text_file.close()
@@ -167,9 +170,9 @@ def main():
                     #print 'Single'
                     Url_And_Data_Fetcher(url)
                     Data_Lookup()
-                    Con_id,Final_EP_Num = Data_Lookup()
-                    os.remove("newfile.txt")
-                    Sub_Lookup(Con_id,Final_EP_Num)
+                    #Con_id,Final_EP_Num = Data_Lookup()
+                    #os.remove("newfile.txt")
+                    #Sub_Lookup(Con_id,Final_EP_Num)
                 elif Hulu_Show:
                     #print 'Batcher'
                     url_partition = url.split('/')
@@ -193,3 +196,12 @@ def main():
 
 if __name__ == "__main__":
    main()
+
+
+
+'''
+
+http?://(?:(?P<prefix>www)\.)?(?P<url>hulu\.com/)[a-z\-]+     --> http://www.hulu.com/oh-my-ghostess
+http?://(?:(?P<prefix>www)\.)?(?P<url>hulu\.com/watch/)[\d]{6}    --> http://www.hulu.com/watch/815743
+
+'''        
