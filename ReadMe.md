@@ -1,6 +1,9 @@
 # Hulu Subs Downloader
 Little Python Script to download subtitles from hulu. Made for educational purposes (yeah,right).
 
+Note : Hulu won't let logged out users to access the "Links" to single episodes. This caused the batch subs ripper to be shut down.
+This will definitely take a shit load amount of time to fix. I'll have to figure out a workaround for this.
+
 Watch How to use this : https://youtu.be/Ymrh99SUpUQ
 
 # Windows Binary (.EXE FILE)
@@ -57,9 +60,9 @@ Note :- Remove all the special characters from the URL,if any. Sometimes there a
 
 # Known Issues
 
-1.) No error pops up when there are no subs for a series/episode.
+~1.) No error pops up when there are no subs for a series/episode.~
 
-2.) Script is slow for "Batch Downloading", because of "PhantomJS" is being used to fetch the OuterHTML of the page.
+~2.) Script is slow for "Batch Downloading", because of "PhantomJS" is being used to fetch the OuterHTML of the page.~
 
 
 # Changelog
@@ -80,7 +83,7 @@ Note :- Remove all the special characters from the URL,if any. Sometimes there a
 
 7.) Windows Binary added.
 
-8.) Batch ripping of subs for whole series.
+~`8.) Batch ripping of subs for whole series~
 
 9.) Changed the lookup parameter for the TITLE of the file. Fix for #2 Issue
 
