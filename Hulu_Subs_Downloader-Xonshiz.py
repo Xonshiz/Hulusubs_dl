@@ -112,7 +112,7 @@ def create_driver():
 def Batch_Links_Fetcher(driver,url_main):
     print "Will Be Downloading The Subs For Whole Series ...\n"
     #print url_main
-    '''
+    
     driver.get(url_main)
     elem = driver.find_element_by_xpath("//*")
     source_code = elem.get_attribute("outerHTML").encode('utf-8')
@@ -126,7 +126,7 @@ def Batch_Links_Fetcher(driver,url_main):
         f2.write(str(links)+'\n')
     #print "Found All the required data for finding links..."
     f2.close()
-    '''
+    
     f3 = open('Episode_Links.txt','w')
     print "Writing Links to the File...\n"
     with open('TempLinks.txt','r') as searchfile:
