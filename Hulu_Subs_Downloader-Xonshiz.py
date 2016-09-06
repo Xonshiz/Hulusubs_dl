@@ -37,22 +37,23 @@ def Data_Lookup():
         for line in searchfile:
             left,sep,right = line.partition('/video/') #Looking For "Content_id" in the <meta content="http://ib3.huluim.com/video/60585710?region=US&amp;size=600x400" property="og:image"/> (60585710 is Con_id)
             if sep:
+                #print sep
                 OG_Title = right
                 Splitter = OG_Title.split("?")
                 Con_id = Splitter[0]
-                #print "Content_id : ",Con_id
+               # print "Content_id : ",Con_id
 
     with open('newfile.txt') as searchfile:
         for line in searchfile:
             left,sep,right = line.partition('<title>')
             if sep:
                 Episode_Number = right
-                print Episode_Number
+                #print Episode_Number
                 Final_EP_Num = Episode_Number.replace('Watch','').replace('| Hulu</title>','').replace('Online','').strip()
-                print Final_EP_Num
+                print '\n', Final_EP_Num
                 #Final_EP_Num = Episode_Number[7:].replace('| Hulu</title>','').replace('>','').replace("Online","")
 
-    return (Con_id,Final_EP_Num)            
+    return (Con_id,Final_EP_Num)     
 
 # Con_id = 60585710
 # Final_EP_Num = Oh My Ghostess - Episode 1
@@ -111,6 +112,7 @@ def create_driver():
 def Batch_Links_Fetcher(driver,url_main):
     print "Will Be Downloading The Subs For Whole Series ...\n"
     #print url_main
+    '''
     driver.get(url_main)
     elem = driver.find_element_by_xpath("//*")
     source_code = elem.get_attribute("outerHTML").encode('utf-8')
@@ -124,31 +126,43 @@ def Batch_Links_Fetcher(driver,url_main):
         f2.write(str(links)+'\n')
     #print "Found All the required data for finding links..."
     f2.close()
+    '''
     f3 = open('Episode_Links.txt','w')
     print "Writing Links to the File...\n"
     with open('TempLinks.txt','r') as searchfile:
+       #print 'Inside this'
         for lines in searchfile:
-            left,sep,right = lines.partition('/watch/') #Looking For "Content_id" in the <meta content="http://ib3.huluim.com/video/60585710?region=US&amp;size=600x400" property="og:image"/> (60585710 is Con_id)
+            #print lines
+            left,sep,right = lines.partition('/video/') #Looking For "Content_id" in the <meta content="http://ib3.huluim.com/video/60585710?region=US&amp;size=600x400" property="og:image"/> (60585710 is Con_id)
             if sep:
+                #print sep
                 OG_Title = right
-                Splitter = OG_Title.split('"')
+                Splitter = OG_Title.split('?')
                 Con_id = Splitter[0].strip().replace('\n','')
+               # print Con_id
                 Final_Episode_Link = "http://www.hulu.com/watch/"+str(Con_id)
+               # print Final_Episode_Link
                 f3.write(str(Final_Episode_Link)+'\n')
     f3.close()
-    os.remove('TempLinks.txt')
+    #os.remove('TempLinks.txt')
      
 def Batch_Link_Downloader():
     Episode_File = open('Episode_Links.txt','r')
     file = open("newfile.txt", "w")
     for line in Episode_File:
+        #print line
         Link = line.rstrip('\n')
-        q = requests.get(Link)
-        soup = BeautifulSoup(q.text,"lxml")
-        file.write(soup.encode("utf8") + "\n")
-        Data_Lookup()
+        url = Link
+        print url
+        Url_And_Data_Fetcher(url)
         Con_id,Final_EP_Num = Data_Lookup()
         Sub_Lookup(Con_id,Final_EP_Num)
+        #q = requests.get(Link)
+        #soup = BeautifulSoup(q.text,"lxml")
+        #file.write(soup.encode("utf8") + "\n")
+        #Data_Lookup()
+        #Con_id,Final_EP_Num = Data_Lookup()
+        #Sub_Lookup(Con_id,Final_EP_Num)
     file.close()
     Episode_File.close()
     os.remove('newfile.txt')
@@ -169,11 +183,13 @@ def main():
                 if Hulu_Episode:
                     #print 'Single'
                     Url_And_Data_Fetcher(url)
-                    Data_Lookup()
+                    Con_id,Final_EP_Num = Data_Lookup()
                     #Con_id,Final_EP_Num = Data_Lookup()
                     #os.remove("newfile.txt")
-                    #Sub_Lookup(Con_id,Final_EP_Num)
+                    Sub_Lookup(Con_id,Final_EP_Num)
                 elif Hulu_Show:
+                    print 'Hulu doesn\'t let you see the URL for single episode without signing In. Sorry, this will stay down untill I figure out a workaround!'
+                    sys.exit()
                     #print 'Batcher'
                     url_partition = url.split('/')
                     #print url_partition
