@@ -16,25 +16,16 @@ P.S : The .rar file came out to be 28 MB, which is more than the 25 MB limit on 
 
 # First Things First!
 
-Please run the "Setup.py" file first. You need to pass an argument with it, so you better run it in a command prompt. It will install all the dependencies required for proper functioning of this script. I've used some external libraries to parse xml and do some stuff. So, run "setup.py" file first. This step needs to be executed only one time. However, if this shows any error, please feel free to contact me via xonshiz@psychoticelites.com
-
-The command : setup.py install
-
-Note : I take it that you are executing it from the same directory.
-
-
-# What do I need to run this thing?
-
-1.) Python 2.7.x
-
-# Python Libraries Required
-
 Download the "requirements.txt" in some directory. Open Command Prompt and browse to the directory where you downloaded your requiremenets.txt file and run this command :
 
 `pip install -r requirements.txt`
 
 NOTE : You need to have "PIP" installed in your system and set in the path. Python 2.7.10 should already have this done. Just double check on your end though.
 
+
+# What do I need to run this thing?
+
+1.) Python 2.7.x
 
 # How do I do what I have to do? (Simple Guide)
 Watch this video if you can't get what I wrote below : https://youtu.be/Ymrh99SUpUQ
