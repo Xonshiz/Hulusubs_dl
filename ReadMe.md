@@ -8,10 +8,11 @@ Watch How to use this : https://youtu.be/Ymrh99SUpUQ
 
 # Windows Binary (.EXE FILE)
 
-Windows users can download this .rar file which contains the "hulu Subs Downloader.exe" file along with everything else that is needed from this link : [CLICK ME](https://github.com/Xonshiz/Hulu-Subs-Downloader/raw/master/Hulu%20Subs%20Downloader%20%5BWindows%20Binary%5D.rar)
+Windows users can download this .rar file which contains the "hulu Subs Downloader.exe" file along with everything else that is needed from this link : [CLICK ME](http://www.multiupfile.com/f/94952d56) (x64)
 
 Just extract this somewhere in a folder (don't extract in C:\\ or the windows drive). And run "Hulu_Subs_Downloader-Xonshiz.exe" and follow the steps mentioned in "How do I do what I have to do?". Binary users don't need anything else to use this.
 
+P.S : The .rar file came out to be 28 MB, which is more than the 25 MB limit on Github, hence, external file host.
 
 # First Things First!
 
@@ -28,21 +29,11 @@ Note : I take it that you are executing it from the same directory.
 
 # Python Libraries Required
 
-1.) BeautifulSoup 4.3.2 (Included Within This Script)
+Download the "requirements.txt" in some directory. Open Command Prompt and browse to the directory where you downloaded your requiremenets.txt file and run this command :
 
-2.) requests (Included Within This Script)
+`pip install -r requirements.txt`
 
-3.) OS (Already There In Python)
-
-4.) sys (Alread There In Python)
-
-5.) re (Alread There In Python)
-
-6.) lxml (Install via the setup.py file)
-
-7.) Selenium (Install via the Setup.py File)
-
-So, You don't really Need to install or download anything extra.
+NOTE : You need to have "PIP" installed in your system and set in the path. Python 2.7.10 should already have this done. Just double check on your end though.
 
 
 # How do I do what I have to do? (Simple Guide)
@@ -83,9 +74,11 @@ Note :- Remove all the special characters from the URL,if any. Sometimes there a
 
 7.) Windows Binary added.
 
-~`8.) Batch ripping of subs for whole series~
+8.) Batch ripping of subs for whole series
 
 9.) Changed the lookup parameter for the TITLE of the file. Fix for #2 Issue
+
+10.) Proper directories for a series.
 
 If you have any queries or want me to make a script to automate something, feel free to drop me an email at :
 xonshiz[at]psychoticelites.com
