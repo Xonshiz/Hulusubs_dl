@@ -8,7 +8,9 @@ Watch How to use this : https://youtu.be/Ymrh99SUpUQ
 
 # Windows Binary (.EXE FILE)
 
-Windows users can download this .rar file which contains the "hulu Subs Downloader.exe" file along with everything else that is needed from this link : [CLICK ME](http://www.multiupfile.com/f/94952d56) (x64)
+Windows users can download this .rar file which contains the "hulu Subs Downloader.exe" file along with everything else that is needed from this link :
+
+1.) x64 :[CLICK ME](http://www.multiupfile.com/f/94952d56) OR [CLICK ME](https://drive.google.com/file/d/0B27CFrTCSppNWm1WZ1BpcllvVDA/view?usp=sharing)
 
 Just extract this somewhere in a folder (don't extract in C:\\ or the windows drive). And run "Hulu_Subs_Downloader-Xonshiz.exe" and follow the steps mentioned in "How do I do what I have to do?". Binary users don't need anything else to use this.
 
