@@ -27,7 +27,7 @@ Note : I'm working on making this script available for both, Python 2 and Python
 # How do I do what I have to do? (Simple Guide)
 Watch this video if you can't get what I wrote below : https://youtu.be/Ymrh99SUpUQ
 
-1.) Run "HuluSubs.py" File. (Run within CMD if you want to see the errors,if any).
+1.) Run "HuluSubsDownloader.py" File. (Run within CMD if you want to see the errors,if any).
 
 2.) Paste the video Link when it asks . For Ex :- http://www.hulu.com/watch/815743 (Single Episode) and http://www.hulu.com/oh-my-ghostess (to download Subs for whole series)
 
@@ -74,7 +74,7 @@ Note :- Remove all the special characters from the URL,if any. Sometimes there a
 
 13.) Support for Python 3.
 
-14.) Fix for #6 Issue
+14.) Fix for #5 and #6 Issues.
 
 If you have any queries or want me to make a script to automate something, feel free to drop me an email at :
 xonshiz[at]psychoticelites.com
