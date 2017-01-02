@@ -7,14 +7,7 @@ This will definitely take a shit load amount of time to fix. I'll have to figure
 Watch How to use this : https://youtu.be/Ymrh99SUpUQ
 
 # Windows Binary (.EXE FILE)
-
-Windows users can download this .rar file which contains the "hulu Subs Downloader.exe" file along with everything else that is needed from this link :
-
-1.) x64 :[CLICK ME](http://www.multiupfile.com/f/94952d56) OR [CLICK ME](https://drive.google.com/file/d/0B27CFrTCSppNWm1WZ1BpcllvVDA/view?usp=sharing)
-
-Just extract this somewhere in a folder (don't extract in C:\\ or the windows drive). And run "Hulu_Subs_Downloader-Xonshiz.exe" and follow the steps mentioned in "How do I do what I have to do?". Binary users don't need anything else to use this.
-
-P.S : The .rar file came out to be 28 MB, which is more than the 25 MB limit on Github, hence, external file host.
+Move over to the [`release section`](https://github.com/Xonshiz/Hulu-Subs-Downloader/releases) to download the latest windows binary (.exe file). The exe is 32 bit binary file, which should run on both the windows platform (x86 and x64).
 
 # First Things First!
 
@@ -27,7 +20,9 @@ NOTE : You need to have "PIP" installed in your system and set in the path. Pyth
 
 # What do I need to run this thing?
 
-1.) Python 2.7.x
+1.) Python 3
+
+Note : I'm working on making this script available for both, Python 2 and Python 3. It'll take some time. So, have patience.
 
 # How do I do what I have to do? (Simple Guide)
 Watch this video if you can't get what I wrote below : https://youtu.be/Ymrh99SUpUQ
@@ -44,9 +39,9 @@ Note :- Remove all the special characters from the URL,if any. Sometimes there a
 
 # Known Issues
 
-~1.) No error pops up when there are no subs for a series/episode.~
+~~1.) No error pops up when there are no subs for a series/episode.~~
 
-~2.) Script is slow for "Batch Downloading", because of "PhantomJS" is being used to fetch the OuterHTML of the page.~
+~~2.) Script is slow for "Batch Downloading", because of "PhantomJS" is being used to fetch the OuterHTML of the page.~~
 
 
 # Changelog
@@ -67,11 +62,19 @@ Note :- Remove all the special characters from the URL,if any. Sometimes there a
 
 7.) Windows Binary added.
 
-8.) Batch ripping of subs for whole series
+~~8.) Batch ripping of subs for whole series~~
 
 9.) Changed the lookup parameter for the TITLE of the file. Fix for #2 Issue
 
-10.) Proper directories for a series.
+~~10.) Proper directories for a series.~~
+
+11.) Re-wrote the code with classes and faster lookup.
+
+12.) Whole series subtitle downloading removed (Hulu changed a few things again).
+
+13.) Support for Python 3.
+
+14.) Fix for #6 Issue
 
 If you have any queries or want me to make a script to automate something, feel free to drop me an email at :
 xonshiz[at]psychoticelites.com
