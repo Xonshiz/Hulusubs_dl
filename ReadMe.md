@@ -76,5 +76,7 @@ Note :- Remove all the special characters from the URL,if any. Sometimes there a
 
 14.) Fix for #5 and #6 Issues.
 
+15.) Fix for #7 Issues.
+
 If you have any queries or want me to make a script to automate something, feel free to drop me an email at :
 xonshiz[at]psychoticelites.com

@@ -1,111 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/HuluSubsDownloader.py" line="31" />
+    <bookmark url="file://$PROJECT_DIR$/HuluSubsDownloader.py" line="32" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="50f03580-ff14-4a69-aaf2-cc87a48174d1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/HuluSubsDownloader.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/builder/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/builder/_html5lib.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/builder/_htmlparser.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/builder/_lxml.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/dammit.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/diagnose.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/element.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/testing.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/tests/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/tests/test_builder_registry.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/tests/test_docs.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/tests/test_html5lib.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/tests/test_htmlparser.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/tests/test_lxml.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/tests/test_soup.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/bs4/tests/test_tree.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/phantomjs.exe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/adapters.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/api.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/auth.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/cacert.pem" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/certs.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/compat.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/cookies.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/exceptions.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/hooks.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/big5freq.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/big5prober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/chardetect.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/chardistribution.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/charsetgroupprober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/charsetprober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/codingstatemachine.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/compat.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/constants.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/cp949prober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/escprober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/escsm.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/eucjpprober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/euckrfreq.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/euckrprober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/euctwfreq.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/euctwprober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/gb2312freq.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/gb2312prober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/hebrewprober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/jisfreq.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/jpcntx.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/langbulgarianmodel.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/langcyrillicmodel.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/langgreekmodel.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/langhebrewmodel.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/langhungarianmodel.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/langthaimodel.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/latin1prober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/mbcharsetprober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/mbcsgroupprober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/mbcssm.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/sbcharsetprober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/sbcsgroupprober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/sjisprober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/universaldetector.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/chardet/utf8prober.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/_collections.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/connection.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/connectionpool.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/contrib/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/contrib/ntlmpool.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/contrib/pyopenssl.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/exceptions.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/fields.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/filepost.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/packages/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/packages/ordered_dict.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/packages/six.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/packages/ssl_match_hostname/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/packages/ssl_match_hostname/_implementation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/poolmanager.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/request.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/response.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/util/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/util/connection.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/util/request.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/util/response.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/util/retry.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/util/ssl_.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/util/timeout.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/packages/urllib3/util/url.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/sessions.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/status_codes.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/structures.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requests/utils.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Hulu_Subs_Downloader-Xonshiz.py" afterPath="$PROJECT_DIR$/Hulu_Subs_Downloader-Xonshiz.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ReadMe.md" afterPath="$PROJECT_DIR$/ReadMe.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HuluSubsDownloader.py" afterPath="$PROJECT_DIR$/HuluSubsDownloader.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -115,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Hulu-Subs-Downloader$HuluSubsDownloader.coverage" NAME="HuluSubsDownloader Coverage Results" MODIFIED="1483292800072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Hulu-Subs-Downloader$HuluSubsDownloader.coverage" NAME="HuluSubsDownloader Coverage Results" MODIFIED="1490462876197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -126,8 +28,8 @@
       <file leaf-file-name="HuluSubsDownloader.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/HuluSubsDownloader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+            <state relative-caret-position="370">
+              <caret line="71" column="16" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -141,6 +43,14 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Enter a</find>
+      <find>Download</find>
+      <find>fileName =</find>
+      <find>print</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -209,9 +119,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Pythons\Python3.5\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Hulu-Subs-Downloader" />
@@ -459,15 +369,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2585288" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26652452" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30411255" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45887446" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -492,6 +402,30 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/HuluSubsDownloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HuluSubsDownloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HuluSubsDownloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/Pythons/Python3.5/Lib/site-packages/bs4/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -501,8 +435,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/HuluSubsDownloader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+        <state relative-caret-position="370">
+          <caret line="71" column="16" lean-forward="false" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="30" />
           <folding />
         </state>
       </provider>

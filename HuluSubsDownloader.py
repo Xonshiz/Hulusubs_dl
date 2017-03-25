@@ -12,19 +12,21 @@ import urllib.request
 
 
 class HuluSubs(object):
-    def __init__(self):
-        self.url = mainurl
+    def __init__(self, url):
+        self.url = url
         self.subFormat = subType
-        hulu_Episode_Regex = r'^http?://(?:(?P<prefix>www)\.)?(?P<url>hulu\.com/watch/)[\d]+'
+        hulu_Episode_Regex = r'^https?://(?:(?P<prefix>www)\.)?(?P<url>hulu\.com/watch/)[\d]+'
         hulu_Episode = re.match(hulu_Episode_Regex, self.url)
 
         if hulu_Episode:
+            # print("HERE")
             self.singleEpisode(self.url)
 
 
     def singleEpisode(self, url):
         scraper = cfscrape.create_scraper()
-        html_content = str(scraper.get(url).content)
+        html_content = str(str(scraper.get(url).content))
+        # print(html_content)
         showTitle = str(re.search('og\:title\"\ content\=\"(.*?)\"\/\>', html_content).group(1)).strip()
         show_name = showTitle.split(':')[0]
         # print(show_name)
@@ -56,17 +58,23 @@ class HuluSubs(object):
         elif str(self.subFormat).lower() in ['srt']:
             print("Downloading %s - %s" % (show_name, episode_number))
             urllib.request.urlretrieve(vtt_link, fileName + '.srt')
-            with open(fileName + '.srt','r+') as f:  # A HUGE thanks to fiskenslakt (https://www.reddit.com/user/fiskenslakt) for this "VTT" to "SRT conversion". Read his contribution here : https://www.reddit.com/r/learnpython/comments/4i380g/add_line_number_for_empty_lines_in_a_text_file/
+            with open(fileName + '.srt','r+', encoding='utf-8') as f:  # A HUGE thanks to fiskenslakt (https://www.reddit.com/user/fiskenslakt) for this "VTT" to "SRT conversion". Read his contribution here : https://www.reddit.com/r/learnpython/comments/4i380g/add_line_number_for_empty_lines_in_a_text_file/
                 lines = f.readlines()
+                lines.pop() # Fix for SRT file. Remove the last '\n', so that it doesn't increase the line count and mess up the whole srt file.
+
                 newLineCount = 0
                 for i, num in enumerate(lines):
                     if num == '\n':
                         newLineCount += 1
-                        lines[i] = str(newLineCount) + '\n'
+                        lines[i] = str(newLineCount)
+
                 f.seek(0)
+                # print(lines)
                 for line in lines:
-                    finalLine = str(line).replace('WEBVTT','').replace("--&gt;","-->").replace("</p></body></html>","")
+                    # print(line + "Heeeelo")
+                    finalLine = str(line).replace('WEBVTT\n','').replace("--&gt;","-->").replace("</p></body></html>","").replace(".",",")
                     f.write(finalLine + '\n')
+
 
         print("Downloaded %s - %s" % (show_name, episode_number))
 
@@ -79,9 +87,11 @@ if __name__ == '__main__':
     elif sys.version_info[:1] == (3,):
         mainurl = str(input('Enter a URL : ')).strip()
         subType = str(input("Which format do you want : ")).strip()
+    # mainurl = "https://www.hulu.com/watch/818229"
+    # subType = "srt"
 
     if not mainurl:
         print("You did not provide me with a URL.")
         sys.exit()
     else:
-        SubDownloader = HuluSubs()
+        SubDownloader = HuluSubs(mainurl)
