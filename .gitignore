@@ -6,3 +6,12 @@
 .idea/Hulu-Subs-Downloader.iml
 *.xml
 .idea/Hulu-Subs-Downloader.iml
+
+/dist/*.*
+*.manifest
+*.toc
+*.pkg
+*.pyz
+build/HuluSubsDownloader/warnHuluSubsDownloader.txt
+build/HuluSubsDownloader/xref-HuluSubsDownloader.html
+*.spec
