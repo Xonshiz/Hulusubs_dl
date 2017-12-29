@@ -1,97 +1,127 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from __future__ import absolute_import
-from __future__ import print_function
-from future import standard_library
-standard_library.install_aliases()
 import sys
 import re
 import cfscrape
-import urllib.request
+import requests
+import json
+import os
+from bs4 import BeautifulSoup
 
 
-class HuluSubs(object):
-    def __init__(self, url):
+class HuluSubs:
+    def __init__(self, url, subtitle_type):
         self.url = url
-        self.subFormat = subType
-        hulu_Episode_Regex = r'^https?://(?:(?P<prefix>www)\.)?(?P<url>hulu\.com/watch/)[\d]+'
-        hulu_Episode = re.match(hulu_Episode_Regex, self.url)
+        self.subtitle_format = subtitle_type
+        hulu__episode__regex = r'^https?://(?:(?P<prefix>www)\.)?(?P<url>hulu\.com/watch/)[\d]+'
+        hulu__episode = re.match(hulu__episode__regex, self.url)
 
-        if hulu_Episode:
-            # print("HERE")
-            self.singleEpisode(self.url)
+        if hulu__episode:
+            self.single_episode(self.url)
+            sys.exit(0)
+        else:
+            print("Please Check The URL again!")
+            sys.exit(1)
 
+    def page_downloader(self, page_url, **kwargs):
+        headers = {
+            'User-Agent':
+                'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
+            'Accept-Encoding': 'gzip, deflate'
+        }
 
-    def singleEpisode(self, url):
-        scraper = cfscrape.create_scraper()
-        html_content = str(str(scraper.get(url).content))
-        # print(html_content)
-        showTitle = str(re.search('og\:title\"\ content\=\"(.*?)\"\/\>', html_content).group(1)).strip()
-        show_name = showTitle.split(':')[0]
-        # print(show_name)
-        episode_number = str(re.search('\"episodeNumber\"(.*?)\,', html_content).group(1)).replace(':','').replace('\\n','').strip()
-        # print(episode_number)
-        season_number = str(re.search('\"seasonNumber\"(.*?)\}', html_content).group(1)).replace(':', '').replace('\\n', '').strip()
-        # print(season_number)
-        fileName_special = str(show_name) + " - S0" + str(season_number) + "E0" + str(episode_number) # Top Lamb / Molly Molly Mouthful - S03E01
-        # print(fileName_special)
-        fileName = re.sub(r'[^A-Za-z0-9\ \-\' \\]+', '', fileName_special)
-        # print(fileName)
-        try:
-            con_id = str(re.search('\/video\/(.*?)\?', html_content).group(1)).replace(':', '').replace('\\n','').strip()
-        except Exception:
-            print("Looks like the video is Hardsubbed!")
-            sys.exit()
-        captionLookup = 'http://www.hulu.com/captions.xml?content_id=' + str(con_id)
+        sess = requests.session()
+        sess = cfscrape.create_scraper(sess)
 
-        linkVisitor = scraper.get(captionLookup).content
-        # print(linkVisitor)
-        vtt = str(re.search('\<en\>(.*?)\<\/en\>', str(linkVisitor)).group(1)).replace(': ', '').replace('\\n','').strip()
-        vtt_link = str(vtt).replace('captions','captions_webvtt').replace('smi','vtt')
-        # print(vtt_link)
+        connection = sess.get(page_url, headers=headers, cookies=kwargs.get("cookies"))
+        if connection.status_code != 200:
+            print("Whoops! Seems like I can't connect to website.")
+            print("It's showing : %s" % connection)
+            print("Run this script with the --verbose argument and report the issue along with log file on Github.")
+            sys.exit(1)
+        else:
+            page_source = BeautifulSoup(connection.content, "html.parser")  # text.encode("utf-8")
+            connection_cookies = sess.cookies
 
-        if str(self.subFormat).lower() in ['vtt']:
-            print("Downloading %s - %s" % (show_name, episode_number))
-            urllib.request.urlretrieve(vtt_link, fileName + '.vtt')
-            sys.exit()
-        elif str(self.subFormat).lower() in ['srt']:
-            print("Downloading %s - %s" % (show_name, episode_number))
-            urllib.request.urlretrieve(vtt_link, fileName + '.srt')
-            with open(fileName + '.srt','r+', encoding='utf-8') as f:  # A HUGE thanks to fiskenslakt (https://www.reddit.com/user/fiskenslakt) for this "VTT" to "SRT conversion". Read his contribution here : https://www.reddit.com/r/learnpython/comments/4i380g/add_line_number_for_empty_lines_in_a_text_file/
-                lines = f.readlines()
-                lines.pop() # Fix for SRT file. Remove the last '\n', so that it doesn't increase the line count and mess up the whole srt file.
+            return page_source, connection_cookies
 
-                newLineCount = 0
+    def single_episode(self, url, **kwargs):
+        page_source, cookies = self.page_downloader(page_url=url, cookies=kwargs.get("session_cookies"))
+
+        data_json = json.loads(str(page_source.find_all('script', {'type': 'application/ld+json'})[0].text))
+
+        series_name = data_json["partOfSeries"]["name"]
+        episode_number = data_json["episodeNumber"]
+        season_number = data_json["partOfSeason"]["seasonNumber"]
+        con_id = str(re.search(r'/video/(.*?)\?', str(data_json["image"])).group(1)).strip()
+
+        file_name = os.path.abspath("{0} - S0{1}E0{2}.vtt".format(series_name, season_number, episode_number))
+
+        caption_url = "http://www.hulu.com/captions.xml?content_id=" + con_id
+        xml_source, xml_cookies = self.page_downloader(page_url=caption_url, cookies=cookies)
+        vtt_file_link = str(re.search(r'<en>(.*?)</en>', str(xml_source)).group(1)).replace('captions', 'captions_webvtt').replace('smi', 'vtt')
+
+        smi_source, smi_cookies = self.page_downloader(page_url=vtt_file_link, cookies=xml_cookies)
+
+        print("-" * len("Downloading %s - %s" % (series_name, episode_number)))
+        print("Downloading %s - %s" % (series_name, episode_number))
+
+        with open(file_name, "wb") as sub_file:
+            sub_file.write(str(smi_source))
+
+        if str(self.subtitle_format).lower() in ['srt']:
+            print("Converting File")
+            with open(file_name, 'r+') as read_file:
+                """
+                A HUGE thanks to fiskenslakt (https://www.reddit.com/user/fiskenslakt) for this "VTT" to "SRT
+                conversion". Read his contribution here : https://www.reddit.com/r/learnpython/comments/4i380g/add_
+                line_number_for_empty_lines_in_a_text_file/
+                """
+                lines = read_file.readlines()
+                lines.pop()
+                """
+                Fix for SRT file. Remove the last '\n', so that it doesn't increase the line count
+                and mess up the whole srt file.
+                """
+
+                new_line_count = 0
                 for i, num in enumerate(lines):
                     if num == '\n':
-                        newLineCount += 1
-                        lines[i] = str(newLineCount)
+                        new_line_count += 1
+                        lines[i] = str(new_line_count)
+                read_file.seek(0)
 
-                f.seek(0)
-                # print(lines)
                 for line in lines:
-                    # print(line + "Heeeelo")
-                    finalLine = str(line).replace('WEBVTT\n','').replace("--&gt;","-->").replace("</p></body></html>","").replace(".",",")
-                    f.write(finalLine + '\n')
+                    final_line = str(line).replace('WEBVTT\n','').replace("--&gt;", "-->").replace("</p></body></html>", "").replace(".", ",")
+                    read_file.write(final_line + '\n')
+            try:
+                os.rename(file_name, str(file_name).replace(".vtt", ".srt"))
+            except Exception as file_renaming_error:
+                print("Couldn't convert file.")
+                print(file_renaming_error)
+                pass
 
-
-        print("Downloaded %s - %s" % (show_name, episode_number))
+        print("Download Complete For {0} - S0{1}E0{2}".format(series_name, season_number, episode_number))
+        print("-"*len("Download Complete For {0} - S0{1}E0{2}".format(series_name, season_number, episode_number)))
 
 
 if __name__ == '__main__':
+    main_url = ""
+    sub_type = ""
 
     if sys.version_info[:1] == (2,):
-        mainurl = str(raw_input('Enter a URL : ')).strip()
-        subType = str(raw_input("Which format do you want : ")).strip()
+        main_url = str(raw_input('Enter a URL for hulu.com : ')).strip()
+        sub_type = str(raw_input("Which format do you want? (SRT or VTT) : ")).strip()
     elif sys.version_info[:1] == (3,):
-        mainurl = str(input('Enter a URL : ')).strip()
-        subType = str(input("Which format do you want : ")).strip()
-    # mainurl = "https://www.hulu.com/watch/818229"
+        main_url = str(input('Enter a URL for hulu.com : ')).strip()
+        sub_type = str(input("Which format do you want? (SRT or VTT) : ")).strip()
+    # mainurl = "https://www.hulu.com/watch/872899"
     # subType = "srt"
 
-    if not mainurl:
+    print("")
+    if not main_url:
         print("You did not provide me with a URL.")
         sys.exit()
     else:
-        SubDownloader = HuluSubs(mainurl)
+        SubDownloader = HuluSubs(url=main_url, subtitle_type=sub_type)
