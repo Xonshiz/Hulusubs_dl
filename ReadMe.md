@@ -1,4 +1,4 @@
-# Hulu Subs Downloader
+# Hulu Subs Downloader | [![Build Status](https://travis-ci.org/Xonshiz/Hulu-Subs-Downloader.svg?branch=master)](https://travis-ci.org/Xonshiz/Hulu-Subs-Downloader) | [![GitHub release](https://img.shields.io/github/release/xonshiz/Hulu-Subs-Downloader.svg?style=flat-square)](https://github.com/xonshiz/Hulu-Subs-Downloader/releases/latest) | [![Github All Releases](https://img.shields.io/github/downloads/xonshiz/Hulu-Subs-Downloader/total.svg?style=flat-square)](https://github.com/xonshiz/Hulu-Subs-Downloader/releases)
 Little Python Script to download subtitles from hulu. Made for educational purposes (yeah,right).
 
 Note : Hulu won't let logged out users to access the "Links" to single episodes. This caused the batch subs ripper to be shut down.
