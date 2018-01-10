@@ -15,3 +15,7 @@
 build/HuluSubsDownloader/warnHuluSubsDownloader.txt
 build/HuluSubsDownloader/xref-HuluSubsDownloader.html
 *.spec
+.idea/workspace.xml
+*.xml
+ReadMe.txt
+setup - Copy.py
