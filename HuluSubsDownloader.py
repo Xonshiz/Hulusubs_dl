@@ -67,7 +67,7 @@ class HuluSubs:
         print("-" * len("Downloading %s - %s" % (series_name, episode_number)))
         print("Downloading %s - %s" % (series_name, episode_number))
 
-        with open(file_name, "wb") as sub_file:
+        with open(file_name, "w") as sub_file:
             sub_file.write(str(smi_source))
 
         if str(self.subtitle_format).lower() in ['srt']:
