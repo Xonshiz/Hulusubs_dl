@@ -9,12 +9,13 @@ import json
 import os
 from bs4 import BeautifulSoup
 
-
 class HuluSubs:
     def __init__(self, url, subtitle_type):
         self.url = url
         self.subtitle_format = subtitle_type
-        hulu__episode__regex = r'^https?://(?:(?P<prefix>www)\.)?(?P<url>hulu\.com/watch/)[\d]+'
+        # -- entity id contains 'letters', 'numbers', and 'dashes'
+        # hulu__episode__regex = r'^https?://(?:(?P<prefix>www)\.)?(?P<url>hulu\.com/watch/)[\d]+'
+        hulu__episode__regex = r'^https?://(?:(?P<prefix>www)\.)?(?P<url>hulu\.com/watch/)([a-zA-Z0-9]*-[a-zA-Z0-9]*)+'
         hulu__episode = re.match(hulu__episode__regex, self.url)
 
         if hulu__episode:
@@ -49,12 +50,32 @@ class HuluSubs:
     def single_episode(self, url, **kwargs):
         page_source, cookies = self.page_downloader(page_url=url, cookies=kwargs.get("session_cookies"))
 
-        data_json = json.loads(str(page_source.find_all('script', {'type': 'application/ld+json'})[0].text))
+        #### Update to work with latest Hulu website ####
+        # -- Hulu now uses entity IDs to reference videos
+        entity__id__regex = r'^https?://(?:(?P<prefix>www)\.)?(?P<url>hulu\.com/watch/)'
+        entity__id = re.split(entity__id__regex, url)[-1]
 
-        series_name = data_json["partOfSeries"]["name"]
-        episode_number = data_json["episodeNumber"]
-        season_number = data_json["partOfSeason"]["seasonNumber"]
-        con_id = str(re.search(r'/video/(.*?)\?', str(data_json["image"])).group(1)).strip()
+        # data_json = json.loads(str(page_source.find_all('script', {'type': 'application/ld+json'})[0].text))
+        data_json = json.loads(str(page_source.find_all('script', {'type': 'application/json'})[0].text))
+
+        # -- find Collection Tabs
+        components = data_json["props"]["pageProps"]["layout"]["components"]
+        collection = [t for t in components if t["type"] == "collection_tabs"][0]["tabs"]
+
+        # -- find Episodes Collection
+        episodes = [c for c in collection if c["title"] == "Episodes"][0]["model"]["collection"]["items"]
+
+        # -- find Episode
+        episode = [e for e in episodes if e["id"] == entity__id][0]
+
+        # series_name = data_json["partOfSeries"]["name"]
+        # episode_number = data_json["episodeNumber"]
+        # season_number = data_json["partOfSeason"]["seasonNumber"]
+        # con_id = str(re.search(r'/video/(.*?)\?', str(data_json["image"])).group(1)).strip()
+        series_name = episode["name"]
+        episode_number = episode["number"]
+        season_number = episode["season"]
+        con_id = episode["eabId"].split(entity__id)[1].split('::')[1]
 
         file_name = os.path.abspath("{0} - S0{1}E0{2}.vtt".format(series_name, season_number, episode_number))
 
@@ -68,7 +89,8 @@ class HuluSubs:
         print("Downloading %s - %s" % (series_name, episode_number))
 
         with open(file_name, "wb") as sub_file:
-            sub_file.write(str(smi_source))
+            # sub_file.write(str(smi_source))
+            sub_file.write(smi_source.text.encode())
 
         if str(self.subtitle_format).lower() in ['srt']:
             print("Converting File")
