@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from . import path_util
+
 DEFAULT_SUB_EXT = ['vtt', 'ttml', 'smi']
 
 
@@ -98,18 +99,6 @@ def get_playlist_body(eab_id):
     return body
 
 
-def get_eab_id_formatted(eab_id):
-    eab_id = str(eab_id).replace('%3A', ':')
-    eab_ids = eab_id.split('::')
-    eab_formatted = 'EAB::{0}::{1}::{2}'.format(eab_ids[0], "NULL" if len(eab_ids) < 3 else eab_ids[1],
-                                                "NULL" if len(eab_ids) < 3 else eab_ids[-1])
-    # temp_eab = None
-    # if "EAB" not in eab_id:
-    #     temp_eab = "EAB::" + eab_id
-    # temp_eab = str(temp_eab).replace(':', '%3A').strip()
-    return eab_formatted.replace(':', '%3A').strip()
-
-
 def get_language_code(language):
     return 'en'
 
@@ -122,7 +111,7 @@ def create_file(file_path, file_name, data_to_write):
     if not isinstance(data_to_write, str):
         data_to_write = str(data_to_write)
     if not data_to_write or not str(data_to_write).strip():
-        print("Empty Data Provided For {0}".format(file_name))
+        print("Empty data provided for {0}".format(file_name))
         return False
     file_location = path_util.get_abs_path_name(file_path, file_name)
     with open(file_location, 'w') as f:
@@ -133,7 +122,7 @@ def create_file(file_path, file_name, data_to_write):
 
 def create_file_binary_mode(file_path, file_name, data_to_write):
     if not data_to_write or not str(data_to_write).strip():
-        print("Empty Data Provided For {0}".format(file_name))
+        print("Empty data provided for {0}".format(file_name))
         return False
     file_location = path_util.get_abs_path_name(file_path, file_name)
     with open(file_location, 'wb') as f:

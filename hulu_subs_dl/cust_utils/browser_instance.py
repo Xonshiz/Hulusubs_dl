@@ -20,7 +20,8 @@ def get_request(url, cookie_value, text_only=False, **kwargs):
         print("Whoops! Seems like I can't connect to website.")
         print("It's showing : %s" % connection)
         print("Run this script with the --verbose argument and report the issue along with log file on Github.")
-        raise Warning("can't connect to website %s" % url)
+        print("Can't connect to website %s" % url)
+        return None
     else:
         if text_only:
             return connection.content
@@ -45,6 +46,7 @@ def post_request(url, data, cookie_value, **kwargs):
         print("Whoops! Seems like I can't connect to website.")
         print("It's showing : %s" % connection)
         print("Run this script with the --verbose argument and report the issue along with log file on Github.")
-        raise Warning("can't connect to website %s" % url)
+        print("Can't connect to website %s" % url)
+        return None
     else:
         return json.loads(connection.text.encode("utf-8"))

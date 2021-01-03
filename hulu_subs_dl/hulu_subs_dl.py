@@ -72,7 +72,8 @@ class HuluSubsDl:
             cookie_file_data = utils.read_file_data(cwd, cookie_file_name)
         else:
             cookie_from_user = self.get_cookie_from_user()
-            cookie_written = utils.create_file(cwd, cookie_file_name, cookie_from_user if not args.set_cookie else args.set_cookie[0])
+            cookie_written = utils.create_file(cwd, cookie_file_name,
+                                               cookie_from_user if not args.set_cookie else args.set_cookie[0])
             if cookie_written:
                 cookie_file_data = cookie_from_user
 
@@ -86,7 +87,8 @@ class HuluSubsDl:
                 else:
                     current_try += 1
 
-        hulu_instance = Hulu(url, cookie_file_data, self.subtitle_lang, self.subtitle_extension, self.download_location, cwd)
+        hulu_instance = Hulu(url, cookie_file_data, self.subtitle_lang, self.subtitle_extension, self.download_location,
+                             cwd)
 
     def set_config_file_data(self, config_file_data):
         # We'll map the data to variables in this method
@@ -124,13 +126,17 @@ class HuluSubsDl:
 
     @staticmethod
     def add_argparse():
-        parser = argparse.ArgumentParser(description="HuluSubs_Dl is a command line tool to download subtitles from Hulu.")
+        parser = argparse.ArgumentParser(
+            description="HuluSubs_Dl is a command line tool to download subtitles from Hulu.")
         parser.add_argument('--version', action='store_true', help='Shows version and exits.')
         parser.add_argument('-cookie', '--set-cookie', nargs=1, help='Saves Hulu Cookie.', default=None)
         parser.add_argument('-url', '--subtitle-url', nargs=1, help='Provides URL of the hulu video.', default=None)
-        parser.add_argument('-dd', '--download-directory', nargs=1, help='Decides the download directory of the comics/manga.', default=None)
-        parser.add_argument('-ext', '--subtitle-extension', nargs=1, help='Decides the file extension of the final file.', default='srt')
-        parser.add_argument('-lang', '--subtitle-language', nargs=1, help='Decides the language of the subtitle file.', default='en')
+        parser.add_argument('-dd', '--download-directory', nargs=1,
+                            help='Decides the download directory of the comics/manga.', default=None)
+        parser.add_argument('-ext', '--subtitle-extension', nargs=1,
+                            help='Decides the file extension of the final file.', default='srt')
+        parser.add_argument('-lang', '--subtitle-language', nargs=1, help='Decides the language of the subtitle file.',
+                            default='en')
         parser.add_argument('-skip-conf', '--skip-config', nargs=1, help='Decides the language of the subtitle file.',
                             default=False)
         args = parser.parse_args()
