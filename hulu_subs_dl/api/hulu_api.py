@@ -26,6 +26,12 @@ def get_full_eab_id(eab_id, cookie_value):
     return response
 
 
+def get_series_metadata(series_eab_id, cookie_value):
+    url = 'https://discover.hulu.com/content/v5/hubs/series/{0}?schema=1&limit=999&device_info=web:3.10.0&referralHost=production'.format(series_eab_id)
+    response = cust_utils.browser_instance.get_request(url=url, cookie_value=cookie_value)
+    return response
+
+
 def get_series_season_metadata(series_eab_id, cookie_value, season):
     url = 'https://discover.hulu.com/content/v5/hubs/series/{0}/season/{1}?limit=999&schema=1&offset=0&device_info=web:3.10.0&referralHost=production'.format(series_eab_id, season)
     response = cust_utils.browser_instance.get_request(url=url, cookie_value=cookie_value)
