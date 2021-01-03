@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 
 from cust_utils import *
+import subtitle_processing
 from api import *
 import os
-import sys
 
 
 class Hulu:
@@ -24,7 +24,7 @@ class Hulu:
         eab_id = dict(eab_id_information).get('eab_id', None)
         if not eab_id:
             print("You seem to be out of USA. Use a VPN.")
-            sys.exit(0)
+            return False
         payload = utils.get_playlist_body(eab_id=eab_id)
         if payload:
             print(payload)
@@ -35,7 +35,7 @@ class Hulu:
                 transcripts = playlist_info.get('transcripts_urls', None)
                 if not transcripts:
                     print("Couldn't Find Transcript URLs. Exiting.")
-                    sys.exit(0)
+                    return False
                 else:
                     transcript_urls = dict(transcripts)
                     # we will convert webvtt to any other subtitle format.So,we'll use that URL to get subtitle content.
@@ -55,7 +55,10 @@ class Hulu:
                         subtitle_content = browser_instance.get_request(url, cookie_value, text_only=True)
                         path_created = path_util.create_paths(download_location + os.sep + series_name + os.sep + season_number)
                         if path_created:
-                            # Add logic for converting the subtitles and then write to file.
+                            if extension == 'srt':
+                                subtitle_content = subtitle_processing.convert_vtt_to_srt(subtitle_content)
+                            elif extension == 'ass':
+                                subtitle_content = subtitle_processing.convert_vtt_to_ass(subtitle_content)
                             file_written = utils.create_file_binary_mode(path_created, os.sep + file_name, subtitle_content)
                             if file_written:
                                 return True
