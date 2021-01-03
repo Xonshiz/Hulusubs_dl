@@ -47,11 +47,11 @@ class Hulu:
                     season_number = video_metadata.get('season', "01")
                     episode_number = video_metadata.get('number', "01")
                     file_name = '{0} - S{1}E{2} [{3} Sub].{4}'.format(series_name, season_number, episode_number, language, extension)
-                    selected_extention = transcript_urls.get(extension, None)
-                    if not selected_extention:
+                    selected_extension = transcript_urls.get(extension, None)
+                    if not selected_extension:
                         print("Couldn't Find {0} In Hulu".format(extension))
                     else:
-                        url = str(dict(selected_extention).get(language, None)).strip()
+                        url = str(dict(selected_extension).get(language, None)).strip()
                         subtitle_content = browser_instance.get_request(url, cookie_value, text_only=True)
                         path_created = path_util.create_paths(download_location + os.sep + series_name + os.sep + season_number)
                         if path_created:
