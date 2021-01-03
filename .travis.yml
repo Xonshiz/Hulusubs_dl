@@ -14,3 +14,7 @@ jobs:
   include:
     - python: 3.7
       dist: xenial
+# command to install dependencies
+install: "pip install -r requirements.txt"
+# command to run tests
+script: nosetests
