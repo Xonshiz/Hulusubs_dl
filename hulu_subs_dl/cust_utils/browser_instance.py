@@ -23,7 +23,7 @@ def get_request(url, cookie_value, text_only=False, **kwargs):
         raise Warning("can't connect to website %s" % url)
     else:
         if text_only:
-            return connection.text.encode("utf-8")
+            return connection.content
         return json.loads(connection.text.encode("utf-8"))
 
 
@@ -32,7 +32,9 @@ def post_request(url, data, cookie_value, **kwargs):
         raise Warning("No Cookie Value Provided. Exiting")
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
-        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Accept': '*/*',
+        'Content-Type': 'application/json',
         'Cookie': cookie_value
     }
 

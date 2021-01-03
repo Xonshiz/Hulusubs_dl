@@ -23,7 +23,6 @@ def get_playlist_body(eab_id):
         "limit_ad_tracking": False,
         "ignore_kids_block": False,
         "language": "en",
-        "guid": "3F8BCF4A62C6AD492DBDD8E87C87C4E1",
         "unencrypted": True,
         "interface_version": "1.9.0",
         "network_mode": "wifi",
@@ -127,6 +126,17 @@ def create_file(file_path, file_name, data_to_write):
         return False
     file_location = path_util.get_abs_path_name(file_path, file_name)
     with open(file_location, 'w') as f:
+        f.write(data_to_write)
+        f.flush()
+    return True
+
+
+def create_file_binary_mode(file_path, file_name, data_to_write):
+    if not data_to_write or not str(data_to_write).strip():
+        print("Empty Data Provided For {0}".format(file_name))
+        return False
+    file_location = path_util.get_abs_path_name(file_path, file_name)
+    with open(file_location, 'wb') as f:
         f.write(data_to_write)
         f.flush()
     return True

@@ -3,7 +3,7 @@
 
 from cust_utils import *
 from api import *
-import json
+import os
 import sys
 
 
@@ -46,16 +46,17 @@ class Hulu:
                     series_name = video_metadata.get('series_name', "No Name Found")
                     season_number = video_metadata.get('season', "01")
                     episode_number = video_metadata.get('number', "01")
-                    file_name = '{0} - S{1}E{2} [{3} Sub]'.format(series_name, season_number, episode_number, language)
+                    file_name = '{0} - S{1}E{2} [{3} Sub].{4}'.format(series_name, season_number, episode_number, language, extension)
                     selected_extention = transcript_urls.get(extension, None)
                     if not selected_extention:
                         print("Couldn't Find {0} In Hulu".format(extension))
                     else:
                         url = str(dict(selected_extention).get(language, None)).strip()
                         subtitle_content = browser_instance.get_request(url, cookie_value, text_only=True)
-                        path_created = path_util.create_paths(download_location + series_name + season_number)
+                        path_created = path_util.create_paths(download_location + os.sep + series_name + os.sep + season_number)
                         if path_created:
-                            file_written = utils.create_file(path_created, file_name, subtitle_content)
+                            # Add logic for converting the subtitles and then write to file.
+                            file_written = utils.create_file_binary_mode(path_created, os.sep + file_name, subtitle_content)
                             if file_written:
                                 return True
                             else:

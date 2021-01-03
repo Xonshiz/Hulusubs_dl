@@ -2,17 +2,20 @@
 # -*- coding: utf-8 -*-
 # from .. import cust_utils
 import cust_utils
+import json
 
 BASE_URL = 'https://discover.hulu.com/content/v3/entity'
 
 
 def get_playlist_information(payload, cookie_value):
+    if isinstance(payload, dict):
+        payload = json.dumps(payload)
     response = cust_utils.browser_instance.post_request(url='https://play.hulu.com/v6/playlist', data=payload, cookie_value=cookie_value)
     return response
 
 
 def get_episode_metadata(eab_id, cookie_value, subtitle_lang='en'):
-    url = BASE_URL + 'device_context_id=1&eab_ids={0}&language={1}&referral_host=www.hulu.com&schema=4'.format(eab_id, subtitle_lang)
+    url = BASE_URL + '?device_context_id=1&eab_ids={0}&language={1}&referral_host=www.hulu.com&schema=4'.format(str(eab_id).replace(':', '%3A'), subtitle_lang)
     response = cust_utils.browser_instance.get_request(url=url, cookie_value=cookie_value)
     return response
 

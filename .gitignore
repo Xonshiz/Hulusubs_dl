@@ -19,3 +19,8 @@ build/HuluSubsDownloader/xref-HuluSubsDownloader.html
 *.xml
 ReadMe.txt
 setup - Copy.py
+hulu_subs_dl/.cookie
+hulu_subs_dl/.config
+*.pyc
+hulu_subs_dl/venv/*
+hulu_subs_dl/__pycache__/*
