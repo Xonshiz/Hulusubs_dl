@@ -5,19 +5,20 @@ from cust_utils import *
 import subtitle_processing
 from api import *
 import os
+import re
 
 
 class Hulu:
     def __init__(self, url, cookie_value, language, extension, download_location, cwd):
         print("Class Instantiated")
         if "/series/" in url:
-            self.show_link()
+            self.show_link(url, cookie_value, language, extension, download_location)
         elif "/watch/" in url:
-            self.episode_link(url, cookie_value, language, extension, download_location, cwd)
+            self.episode_link(url, cookie_value, language, extension, download_location)
         else:
             raise Warning("URL Not Supported")
 
-    def episode_link(self, url, cookie_value, language, extension, download_location, cwd):
+    def episode_link(self, url, cookie_value, language, extension, download_location):
         transcript_urls = {}
         eab_id = str(url).split('/watch/')[-1].replace('/', '')
         eab_id_information = hulu_api.get_full_eab_id(eab_id, cookie_value)
@@ -41,7 +42,7 @@ class Hulu:
                     # we will convert webvtt to any other subtitle format.So,we'll use that URL to get subtitle content.
                     if extension not in utils.DEFAULT_SUB_EXT:
                         transcript_urls[extension] = transcript_urls.get('webvtt', {})
-                    video_metadata = dict(hulu_api.get_episode_metadata(eab_id, cookie_value, language)).get('items', {})
+                    video_metadata = dict(hulu_api.get_eab_id_metadata(eab_id, cookie_value, language)).get('items', {})
                     video_metadata = dict(list(video_metadata)[0])
                     series_name = video_metadata.get('series_name', "No Name Found")
                     season_number = video_metadata.get('season', "01")
@@ -68,5 +69,26 @@ class Hulu:
             print("Failed To Retrieve The Data.")
         return None
 
-    def show_link(self):
-        return None
+    def show_link(self, url, cookie_value, language, extension, download_location):
+        eab_id_matches = re.findall(r'-([0-9A-Za-z]+)', str(url).split('/series/')[-1])
+        if eab_id_matches and len(eab_id_matches) > 1:
+            eab_id_matches.pop(0)
+            eab_id = 'EAB::' + '-'.join(eab_id_matches)
+            series_metadata = dict(hulu_api.get_eab_id_metadata(eab_id, cookie_value, language)).get('items', {})
+            season_numbers = []
+            season_episodes = []
+            if not series_metadata:
+                print("No Series Information Found. Make sure you're in USA IP.")
+                return False
+            for item in series_metadata:
+                # Saving the season numbers
+                season_numbers.append(dict(item).get('season', 0))
+            for season in season_numbers:
+                # For every season, we'll collect EAB IDs of the episodes.
+                season_metadata = dict(hulu_api.get_series_season_metadata(eab_id, cookie_value, season)).get('items', {})
+                for season_item in season_metadata:
+                    season_episodes.append(dict(season_item).get('id', None))
+            for episode_eab in season_episodes:
+                if episode_eab:
+                    self.episode_link('https://www.hulu.com/watch/{0}'.format(episode_eab), cookie_value, language, extension, download_location)
+        return True
