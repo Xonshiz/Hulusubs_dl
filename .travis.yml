@@ -7,9 +7,30 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
+  - "3.7"
   - "pypy"
   - "pypy3"
 # command to install dependencies
 install: "pip install -r requirements.txt"
 # command to run tests
 script: nosetests
+# Also run these python versions with a specific distribution:
+matrix:
+  include:
+    - python: 2.6
+      dist: trusty
+      - python: 2.7
+      dist: trusty
+    - python: 3.2
+      dist: trusty
+    - python: 3.3
+      dist: trusty
+    - python: 3.4
+      dist: trusty
+    - python: 3.5
+      dist: trusty
+    - python: 3.6
+      dist: trusty
+    - python: 3.7
+      dist: xenial
+      sudo: true
