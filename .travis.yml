@@ -27,7 +27,7 @@ notifications:
     - xonshiz@gmail.com
 deploy:
   provider: pypi
-  edge:
+  edge: true
     branch: v1.8.45
   username: xonshiz
   password:
