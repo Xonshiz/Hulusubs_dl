@@ -3,10 +3,10 @@
 
 import sys
 import os
-from . import __version__
-from . import cust_utils
-from . import hulu_subs_dl
+from hulusubs_dl.__version__ import __version__
+from hulusubs_dl.cust_utils import *
+from hulusubs_dl.hulu_subs_dl import HuluSubsDl
 
 if __name__ == "__main__":
-    hulu_subs_dl.HuluSubsDl(sys.argv[1:], os.getcwd())
+    HuluSubsDl(sys.argv[1:], os.getcwd())
     sys.exit()
