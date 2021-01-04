@@ -6,19 +6,22 @@ python:
   - "3.4"
   - "3.5"
   - "3.6"
+  - "3.7"
+  - "3.8"
   - "pypy"
   - "pypy3"
 dist: trusty
-jobs:
-  include:
-    - python: 3.7
-      dist: xenial
+#jobs:
+#  include:
+#    - python: 3.7
+#      dist: xenial
 # command to install dependencies
 install: "pip install -r requirements.txt"
 # command to run tests
 script:
 - cd hulusubs_dl
 - python __main__.py --version
+- echo $pypi_test
 notifications:
   email:
     - xonshiz@gmail.com
