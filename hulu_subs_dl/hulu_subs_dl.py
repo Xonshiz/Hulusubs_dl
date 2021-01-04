@@ -25,6 +25,7 @@ class HuluSubsDl:
         self.download_location = None
         self.subtitle_lang = None
         self.subtitle_extension = None
+        self.proxy = []
         skip_config = False
 
         args = self.add_argparse()
@@ -57,6 +58,16 @@ class HuluSubsDl:
             else:
                 self.set_config_file_data(config_file_data)
 
+        if args.proxy:
+            user_proxy = eval(args.proxy)
+            if isinstance(user_proxy, list):
+                self.proxy = args.proxy
+            elif isinstance(user_proxy, str):
+                self.proxy = str(user_proxy).split(';')
+            else:
+                print("Wrong proxy format specified.Exiting")
+                sys.exit(0)
+
         if not self.subtitle_lang:
             self.subtitle_lang = utils.get_value_from_list(args.subtitle_language[0], supported_languages)
         if not self.subtitle_extension:
@@ -88,7 +99,7 @@ class HuluSubsDl:
                     current_try += 1
 
         hulu_instance = Hulu(url, cookie_file_data, self.subtitle_lang, self.subtitle_extension, self.download_location,
-                             cwd)
+                             self.proxy)
 
     def set_config_file_data(self, config_file_data):
         # We'll map the data to variables in this method
@@ -97,6 +108,10 @@ class HuluSubsDl:
         self.download_location = config_file_data.get('download_location', None)
         self.subtitle_lang = config_file_data.get('subtitle_lang', None)
         self.subtitle_extension = config_file_data.get('subtitle_extension', None)
+        # We'resving ';' separated proxy values. So, get the object and split it.
+        _proxies = config_file_data.get('proxy', None)
+        if _proxies:
+            self.proxy = str(_proxies).split(';')
         return None
 
     @staticmethod
@@ -137,7 +152,7 @@ class HuluSubsDl:
                             help='Decides the file extension of the final file.', default='srt')
         parser.add_argument('-lang', '--subtitle-language', nargs=1, help='Decides the language of the subtitle file.',
                             default='en')
-        parser.add_argument('-skip-conf', '--skip-config', nargs=1, help='Decides the language of the subtitle file.',
-                            default=False)
+        parser.add_argument('-skip-conf', '--skip-config', help='Decides the language of the subtitle file.', default=False)
+        parser.add_argument('-proxy', '--proxy', nargs=1, help='Provides the Proxy to be used by Hulu Tool.', default=[])
         args = parser.parse_args()
         return args

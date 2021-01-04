@@ -10,16 +10,16 @@ from time import sleep
 
 
 class Hulu:
-    def __init__(self, url, cookie_value, language, extension, download_location, cwd):
+    def __init__(self, url, cookie_value, language, extension, download_location, proxy):
         print("Class Instantiated")
         if "/series/" in url:
-            self.show_link(url, cookie_value, language, extension, download_location)
+            self.show_link(url, cookie_value, language, extension, download_location, proxy)
         elif "/watch/" in url:
-            self.episode_link(url, cookie_value, language, extension, download_location)
+            self.episode_link(url, cookie_value, language, extension, download_location, proxy)
         else:
             print("URL Not Supported")
 
-    def episode_link(self, url, cookie_value, language, extension, download_location):
+    def episode_link(self, url, cookie_value, language, extension, download_location, proxy=None):
         transcript_urls = {}
         eab_id = str(url).split('/watch/')[-1].replace('/', '')
         eab_id_information = hulu_api.get_full_eab_id(eab_id, cookie_value)
@@ -71,7 +71,7 @@ class Hulu:
             print("Failed To Retrieve The Data.")
             return False
 
-    def show_link(self, url, cookie_value, language, extension, download_location):
+    def show_link(self, url, cookie_value, language, extension, download_location, proxy=None):
         eab_id_matches = re.findall(r'-([0-9A-Za-z]+)', str(url).split('/series/')[-1])
         if eab_id_matches and len(eab_id_matches) > 1:
             eab_id_matches.pop(0)

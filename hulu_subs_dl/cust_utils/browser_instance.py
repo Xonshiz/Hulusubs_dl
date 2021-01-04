@@ -2,9 +2,12 @@
 # -*- coding: utf-8 -*-
 import requests
 import json
+from random import random
 
 
 def get_request(url, cookie_value, text_only=False, **kwargs):
+    _proxy = kwargs.get("proxy")
+    _rand_proxy = None
     if not cookie_value:
         raise Warning("No Cookie Value Provided. Exiting")
     headers = {
@@ -12,9 +15,21 @@ def get_request(url, cookie_value, text_only=False, **kwargs):
         'Accept-Encoding': 'gzip, deflate',
         'Cookie': cookie_value
     }
+    if len(_proxy) > 0:
+        try:
+            _rand_proxy = random.choice(_proxy)
+        except IndexError as error:
+            print("Proxy Failed : {0}".format(error))
+            print("Continuing Without Proxy.")
+            _rand_proxy = None
+
+    proxy = {
+        "http": _rand_proxy,
+        "https": _rand_proxy
+    }
 
     sess = requests.session()
-    connection = sess.get(url, headers=headers)
+    connection = sess.get(url, headers=headers, proxies=proxy)
 
     if connection.status_code != 200:
         print("Whoops! Seems like I can't connect to website.")
@@ -29,6 +44,8 @@ def get_request(url, cookie_value, text_only=False, **kwargs):
 
 
 def post_request(url, data, cookie_value, **kwargs):
+    _proxy = kwargs.get("proxy")
+    _rand_proxy = None
     if not cookie_value:
         raise Warning("No Cookie Value Provided. Exiting")
     headers = {
@@ -38,9 +55,20 @@ def post_request(url, data, cookie_value, **kwargs):
         'Content-Type': 'application/json',
         'Cookie': cookie_value
     }
+    if len(_proxy) > 0:
+        try:
+            _rand_proxy = random.choice(_proxy)
+        except IndexError as error:
+            print("Proxy Failed : {0}".format(error))
+            print("Continuing Without Proxy.")
+            _rand_proxy = None
 
+    proxy = {
+        "http": _rand_proxy,
+        "https": _rand_proxy
+    }
     sess = requests.session()
-    connection = sess.post(url, data=data, headers=headers)
+    connection = sess.post(url, data=data, headers=headers, proxies=proxy)
 
     if connection.status_code != 200:
         print("Whoops! Seems like I can't connect to website.")
