@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import cust_utils
+from hulu_subs_dl import cust_utils
 import json
 
 BASE_URL = 'https://discover.hulu.com/content/v3/entity'

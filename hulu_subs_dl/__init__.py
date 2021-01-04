@@ -1,5 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import cust_utils
-import api
+from . import cust_utils
+from . import api

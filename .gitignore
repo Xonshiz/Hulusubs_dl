@@ -5,9 +5,11 @@
 *.iml
 .idea/Hulu-Subs-Downloader.iml
 *.xml
+*.pyc
 .idea/Hulu-Subs-Downloader.iml
 
-/dist/*.*
+/dist/*
+/build/*
 *.manifest
 *.toc
 *.pkg
@@ -24,3 +26,9 @@ hulu_subs_dl/.config
 *.pyc
 hulu_subs_dl/venv/*
 hulu_subs_dl/__pycache__/*
+
+*.pyc
+hulusubs_dl.egg-info/*
+hulu_subs_dl/cust_utils/__pycache__/*
+hulu_subs_dl/cust_utils/__pycache__/utils.cpython-37.pyc
+hulu_subs_dl/cust_utils/__pycache__/browser_instance.cpython-37.pyc
