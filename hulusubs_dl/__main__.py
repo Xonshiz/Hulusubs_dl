@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys
 import os
+import sys
+sys.path.append("..")
 from hulusubs_dl.__version__ import __version__
 from hulusubs_dl.cust_utils import *
 from hulusubs_dl.hulu_subs_dl import HuluSubsDl
