@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from cust_utils import *
-import subtitle_processing
-from api import *
+from .cust_utils import *
+from . import subtitle_processing
+from . import hulu_api
 import os
 import re
 from time import sleep

@@ -6,9 +6,9 @@
 import sys
 import argparse
 import json
-from cust_utils import *
-from __version__ import __version__
-from hulu import Hulu
+from .cust_utils import *
+from .__version__ import __version__
+from .hulu import Hulu
 
 
 class HuluSubsDl:

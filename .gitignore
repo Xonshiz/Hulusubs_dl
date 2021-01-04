@@ -21,14 +21,14 @@ build/HuluSubsDownloader/xref-HuluSubsDownloader.html
 *.xml
 ReadMe.txt
 setup - Copy.py
-hulu_subs_dl/.cookie
-hulu_subs_dl/.config
+hulusubs_dl/.cookie
+hulusubs_dl/.config
 *.pyc
-hulu_subs_dl/venv/*
-hulu_subs_dl/__pycache__/*
+hulusubs_dl/venv/*
+hulusubs_dl/__pycache__/*
 
 *.pyc
 hulusubs_dl.egg-info/*
-hulu_subs_dl/cust_utils/__pycache__/*
-hulu_subs_dl/cust_utils/__pycache__/utils.cpython-37.pyc
-hulu_subs_dl/cust_utils/__pycache__/browser_instance.cpython-37.pyc
+hulusubs_dl/cust_utils/__pycache__/*
+hulusubs_dl/cust_utils/__pycache__/utils.cpython-37.pyc
+hulusubs_dl/cust_utils/__pycache__/browser_instance.cpython-37.pyc

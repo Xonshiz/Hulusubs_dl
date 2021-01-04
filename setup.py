@@ -1,6 +1,6 @@
 import setuptools
 
-from hulu_subs_dl import __version__
+from hulusubs_dl import __version__
 
 readme = open('ReadMe.md').read()
 history = open('Changelog.md').read()
