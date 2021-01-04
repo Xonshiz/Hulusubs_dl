@@ -21,7 +21,6 @@ install: "pip install -r requirements.txt"
 script:
 - cd hulusubs_dl
 - python __main__.py --version
-- echo $pypi_test
 notifications:
   email:
     - xonshiz@gmail.com
