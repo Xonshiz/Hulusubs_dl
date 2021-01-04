@@ -1,3 +1,0 @@
-cfscrape
-requests
-bs4
