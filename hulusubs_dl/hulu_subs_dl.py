@@ -98,8 +98,8 @@ class HuluSubsDl:
                 else:
                     current_try += 1
 
-        hulu_instance = Hulu(url, cookie_file_data, self.subtitle_lang, self.subtitle_extension, self.download_location,
-                             self.proxy)
+        # Everything is set, let's call the main boss
+        Hulu(url, cookie_file_data, self.subtitle_lang, self.subtitle_extension, self.download_location, self.proxy)
 
     def set_config_file_data(self, config_file_data):
         # We'll map the data to variables in this method
@@ -108,7 +108,7 @@ class HuluSubsDl:
         self.download_location = config_file_data.get('download_location', None)
         self.subtitle_lang = config_file_data.get('subtitle_lang', None)
         self.subtitle_extension = config_file_data.get('subtitle_extension', None)
-        # We'resving ';' separated proxy values. So, get the object and split it.
+        # We're saving ';' separated proxy values. So, get the object and split it.
         _proxies = config_file_data.get('proxy', None)
         if _proxies:
             self.proxy = str(_proxies).split(';')
@@ -120,7 +120,8 @@ class HuluSubsDl:
             'max_tries_for_cookie': None,
             'download_location': None,
             'subtitle_lang': None,
-            'subtitle_extension': None
+            'subtitle_extension': None,
+            'proxies': []
         }
         return config
 
@@ -129,7 +130,10 @@ class HuluSubsDl:
         config = dict(config)
         for conf in config:
             while not config.get(conf):
-                config[conf] = input("Value For {0} : ".format(conf))
+                if config.get(conf) == "proxies":
+                    config[conf] = input("Value For {0} : ".format(conf))
+                else:
+                    config[conf] = input("Value For {0} : ".format(conf))
         return config
 
     @staticmethod
@@ -142,17 +146,17 @@ class HuluSubsDl:
     @staticmethod
     def add_argparse():
         parser = argparse.ArgumentParser(
-            description="HuluSubs_Dl is a command line tool to download subtitles from Hulu.")
+            description="HuluSubs_dl is a command line tool to download subtitles from Hulu.")
         parser.add_argument('--version', action='store_true', help='Shows version and exits.')
         parser.add_argument('-cookie', '--set-cookie', nargs=1, help='Saves Hulu Cookie.', default=None)
-        parser.add_argument('-url', '--subtitle-url', nargs=1, help='Provides URL of the hulu video.', default=None)
+        parser.add_argument('-url', '--hulu-url', nargs=1, help='Provides URL of the hulu video.', default=None)
         parser.add_argument('-dd', '--download-directory', nargs=1,
-                            help='Decides the download directory of the comics/manga.', default=None)
+                            help='Decides the download directory of the subtitle(s).', default=None)
         parser.add_argument('-ext', '--subtitle-extension', nargs=1,
                             help='Decides the file extension of the final file.', default='srt')
         parser.add_argument('-lang', '--subtitle-language', nargs=1, help='Decides the language of the subtitle file.',
                             default='en')
-        parser.add_argument('-skip-conf', '--skip-config', help='Decides the language of the subtitle file.', default=False)
+        parser.add_argument('-skip-conf', '--skip-config', help='Skips reading config file.', default=False)
         parser.add_argument('-proxy', '--proxy', nargs=1, help='Provides the Proxy to be used by Hulu Tool.', default=[])
         args = parser.parse_args()
         return args
