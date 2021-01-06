@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# import os
+import os
 # import json
 import sys
 import argparse
@@ -31,6 +31,13 @@ class HuluSubsDl:
         args = self.add_argparse()
         if args.version:
             print(__version__)
+            sys.exit(0)
+        if args.make_config:
+            config_object = self.get_config_file_data()
+            config_data = self.ask_config_file_data(config_object)
+            file_written = utils.create_file(cwd, config_file_name, config_data)
+            if not file_written:
+                print("Couldn't write config file.")
             sys.exit(0)
         if args.subtitle_url:
             url = args.subtitle_url[0]
@@ -129,11 +136,22 @@ class HuluSubsDl:
     def ask_config_file_data(config):
         config = dict(config)
         for conf in config:
-            while not config.get(conf):
-                if config.get(conf) == "proxies":
-                    config[conf] = input("Value For {0} : ".format(conf))
-                else:
-                    config[conf] = input("Value For {0} : ".format(conf))
+            if conf == "max_tries_for_cookie":
+                config[conf] = input("Value For {0}: ".format(conf))
+                config[conf] = 5 if not config[conf] else config[conf]
+            elif conf == "download_location":
+                config[conf] = input("Value For {0}: ".format(conf))
+                config[conf] = os.getcwd() if not config[conf] else config[conf]
+            elif conf == "subtitle_lang":
+                config[conf] = input("Value For {0}: ".format(conf))
+                config[conf] = 'en' if not config[conf] else config[conf]
+            elif conf == "subtitle_extension":
+                config[conf] = input("Value For {0}: ".format(conf))
+                config[conf] = 'srt' if not config[conf] else config[conf]
+            elif conf == "proxies":
+                config[conf] = input("Value For {0} (Split multiple proxies by ';'): ".format(conf))
+            else:
+                config[conf] = input("Value For {0} : ".format(conf))
         return config
 
     @staticmethod
@@ -156,7 +174,8 @@ class HuluSubsDl:
                             help='Decides the file extension of the final file.', default='srt')
         parser.add_argument('-lang', '--subtitle-language', nargs=1, help='Decides the language of the subtitle file.',
                             default='en')
-        parser.add_argument('-skip-conf', '--skip-config', help='Skips reading config file.', default=False)
+        parser.add_argument('-skip-conf', '--skip-config', action='store_true', help='Skips reading config file.')
         parser.add_argument('-proxy', '--proxy', nargs=1, help='Provides the Proxy to be used by Hulu Tool.', default=[])
+        parser.add_argument('-config', '--make-config', action='store_true', help='Creates/Resets Config File & exits.')
         args = parser.parse_args()
         return args
