@@ -1,0 +1,1 @@
+pyinstaller --onefile --hidden-import=queue "hulusubs_dl\__main__.py"

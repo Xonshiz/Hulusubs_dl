@@ -11,7 +11,6 @@ from time import sleep
 
 class Hulu:
     def __init__(self, url, cookie_value, language, extension, download_location, proxy):
-        print("Class Instantiated")
         if "/series/" in url:
             self.show_link(url, cookie_value, language, extension, download_location, proxy)
         elif "/watch/" in url:
@@ -29,7 +28,6 @@ class Hulu:
             return False
         payload = utils.get_playlist_body(eab_id=eab_id)
         if payload:
-            print(payload)
             # Logic to find the URL for the language and extension provided and download it.
             playlist_info = hulu_api.get_playlist_information(payload, cookie_value)
             if playlist_info:
@@ -50,6 +48,7 @@ class Hulu:
                     episode_number = video_metadata.get('number', "01")
                     file_name = '{0} - S{1}E{2} [{3} Sub].{4}'.format(series_name, season_number, episode_number,
                                                                       language, extension)
+                    print("Downloading Subtitle For {0}".format(file_name))
                     selected_extension = transcript_urls.get(extension, None)
                     if not selected_extension:
                         print("Couldn't find {0} in Hulu".format(extension))
@@ -77,7 +76,11 @@ class Hulu:
             eab_id_matches.pop(0)
             eab_id = '-'.join(eab_id_matches)
             series_metadata = {}
-            series_metadata_components = dict(hulu_api.get_series_metadata(eab_id, cookie_value)).get('components', {})
+            series_metadata = hulu_api.get_series_metadata(eab_id, cookie_value)
+            if not series_metadata:
+                print("Couldn't get series metadata. Exiting")
+                return False
+            series_metadata_components = dict(series_metadata).get('components', {})
             if not series_metadata_components or len(series_metadata_components) == 0:
                 print("Data not available. Check your Proxy/VPN.")
             else:
@@ -98,12 +101,14 @@ class Hulu:
                 current_id = dict(item).get('id', None)
                 if current_id:
                     season_numbers.append(str(current_id).split('::')[-1])
+            print("Getting Data For {0} Seasons.".format(len(season_numbers)))
             for season in season_numbers:
                 # For every season, we'll collect EAB IDs of the episodes.
                 season_metadata = dict(hulu_api.get_series_season_metadata(eab_id, cookie_value, season)).get('items',
                                                                                                               {})
                 for season_item in season_metadata:
                     season_episodes.append(dict(season_item).get('id', None))
+            print("Total Episodes To Download: {0}".format(len(season_episodes)))
             for episode_eab in season_episodes:
                 if episode_eab:
                     sleep(1)  # Let's not bombard Hulu's API with requests.

@@ -21,7 +21,7 @@ def get_request(url, cookie_value, text_only=False, **kwargs):
         'Accept-Encoding': 'gzip, deflate',
         'Cookie': cookie_value
     }
-    if len(_proxy) > 0:
+    if _proxy and len(_proxy) > 0:
         try:
             _rand_proxy = random.choice(_proxy)
         except IndexError as error:
@@ -61,7 +61,7 @@ def post_request(url, data, cookie_value, **kwargs):
         'Content-Type': 'application/json',
         'Cookie': cookie_value
     }
-    if len(_proxy) > 0:
+    if _proxy and len(_proxy) > 0:
         try:
             _rand_proxy = random.choice(_proxy)
         except IndexError as error:

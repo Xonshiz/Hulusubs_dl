@@ -36,8 +36,8 @@ class HuluSubsDl:
             if not file_written:
                 print("Couldn't write config file.")
             sys.exit(0)
-        if args.hulu:
-            url = args.hulu[0]
+        if args.hulu_url:
+            url = args.hulu_url[0]
         else:
             while not url:
                 url = input("Enter Hulu URL : ")
