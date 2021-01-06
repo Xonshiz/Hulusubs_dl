@@ -7,6 +7,23 @@ You can find the installation instructions in #Installation Section of this read
 This tool is based around and work with your hulu account's COOKIES. But, please do remember that you should NEVER share your account cookies with anyone and anywhere.
 Person having access to your cookies can use your account. Even when you're sharing any script failure, remember to not share/post your account cookies. 
 
+## Table of Content
+* [Prerequisite](#test)
+* [Python Support](#test)
+* [Usage](#test)
+* [Things To Remember](#test)
+* [How To Find Hulu Cookie](#test)
+* [Walkthrough Video](#test)
+* [Installation](#dependencies-installation)
+    * [Windows](#windows-)
+    * [Linux/Debian/Ubuntu](#linuxdebian-)
+    * [Mac OS X](#mac-os-x-)
+* [List of Arguments](#test)
+* [Supported Formats](#test)
+* [Proxy Usage](#test)
+* [Opening Issues](#test)
+* [How To Contribute](#test)
+
 ## Prerequisite:
 Since Hulu has now protected their content behind an "auth" wall, we can't access the website. In layman words, we need to log in to Hulu, in order to watch anything or to be able to get basic things to extract the subtitles.
 When you run the tool first time, it asks for "cookie" value. You can see it in #HowToFindCookie section of this readme.
@@ -21,6 +38,57 @@ You can specify these values in the file once and then tool will use these defau
 ## Python Support
 This script should run on both Python 2 and 3. Check travisCI builds for exact python versions.
 
+## Usage
+Using this tool can be a little tricky for some people at first, but it's pretty much straightforward. Try to follow along.
+Make sure you've gone through #Prerequisites and have proper version downloaded and installed on your system from the #Installation section.
+
+## Things To Remember
+- You should renew your cookie value from time to time. These cookies expire after some time. So, if you're not able to log in or get the subtitles, try to renew your cookies. Renew cookies meaning, do the steps of #GetHuluCookies again.
+- If the tool isn't working, always try to download the latest release and then try again. If it still fails, open an issue here.
+- Account COOKIES is sensitive data. Never share/post them anywhere.
+
+## How To Find Hulu Cookie
+- Make sure you're in US region (use a VPN or Proxy) and open up your browser.
+- Go to hulu.com and make sure you're not signed in (If you're signed in, just logout).
+- Open developer console (Most browsers have shortcut F12).
+- Navigate to "Network" tab.
+- Log into hulu now. You'll see that "Network" tab now has many urls populated.
+- There should be a "filter" option somewhere in developer console. You need to paste and filter this URL `discover.hulu.com/content/v5/me/state`
+- You'll see only some URLs will be there now. Just select anyone of them and in that you need to see "Request Header" section.
+- Copy the "Cookie" value from it. It'll be a very long text value. Copy all of it.
+- Paste that cookie value when the hulusubs_dl asks for it.
+
+Refer to this screenshot for some clarification:
+
+[![N|Solid](https://i.imgur.com/4Z0KOn4.png)](https://i.imgur.com/4Z0KOn4.png)
+
+## Walkthrough Video
+If you're stuck somewhere or need clarification, here's an in-depth video on how to install and use this tool (Windows & Mac).
+Video will be sharing in a week or so from now.
+
+## Installation
+### Windows EXE Binary Installation
+If you're on windows, it's recommended that you download and use "windows exe binary" to save your time.
+You can download the latest windows release from [RELEASE SECTION](https://github.com/Xonshiz/Hulu-Subs-Downloader/releases/latest)
+Go there and download the ".exe" file. Then follow the usage instructions in #Usage.
+After downloading this exe file, place it in some location that you can access. Because you would need to run this script everytime you want to download subtitles.
+Don't put this in your "Windows" or "System" folders. It might cause conflicts with permissions.
+
+### Linux/Ubuntu/Kubuntu or any other linux flavor Installation
+Since I cannot generate a "binary" for these distributions, you will have to install and use python version directly.
+It's pretty much straightforward, you can just use pip to install hulusubs_dl.
+`pip install hulusubs_dl`
+
+If for some reason, you're unable to use `pip`, try with `easy_install`. If everything fails, you can download code from this repository and then run.
+But, now you'll need to install the dependencies yourself. After downloading, navigate to this folder in your terminal and you can see a "requirements.txt" file.
+You can install all dependencies via `pip install -r requirements.txt`
+All the external dependencies required by this tool are mentioned in that file. You can install them one by one.
+Since you're doing things manually, you might need to give this file executable rights, which can be done like this: 
+`chmod +x __main__.py`
+
+### MacOS
+You can install this from homebrew. I'm working on it, will update this section soon.
+
 ## List of Arguments
 Currently, the script supports these arguments :
 ```
@@ -34,6 +102,14 @@ Currently, the script supports these arguments :
 -skip-conf, --skip-config              Skips reading the config file (default values). Could be handy if you're writing batch scipts.
 -proxy, --proxy                        If you have an http/https proxy, you can provide it here. Tool will use this proxy to make all connections to Hulu.
 -config, --make-config                 Creates/Resets config file & exits(overwrites current default values).
+```
+
+## Supported Formats
+Some arguments support some specific range of values. You can see them below here.
+Values are separated via ';'.
+```
+-lang, --subtitle-language : en (default);es
+-ext, --subtitle-extension: srt (default);ttml;vtt;smi
 ```
 
 ## Proxy Usage
@@ -53,67 +129,6 @@ Multiple Proxies: `123.456.789.0123:4444;2212.127.11.32:5555` (Notice how we're 
 
 If you provide multiple proxies, the tool randomly chooses either of the proxies for every connection. This could avoid proxy ban, if you're using this too much.
 
-## Windows EXE Binary Installation
-If you're on windows, it's recommended that you download and use "windows exe binary" to save your time.
-You can download the latest windows release from [RELEASE SECTION](https://github.com/Xonshiz/Hulu-Subs-Downloader/releases/latest)
-Go there and download the ".exe" file. Then follow the usage instructions in #Usage.
-After downloading this exe file, place it in some location that you can access. Because you would need to run this script everytime you want to download subtitles.
-Don't put this in your "Windows" or "System" folders. It might cause conflicts with permissions.
-
-## Linux/Ubuntu/Kubuntu or any other linux flavor Installation
-Since I cannot generate a "binary" for these distributions, you will have to install and use python version directly.
-It's pretty much straightforward, you can just use pip to install hulusubs_dl.
-`pip install hulusubs_dl`
-
-If for some reason, you're unable to use `pip`, try with `easy_install`. If everything fails, you can download code from this repository.
-But, now you'll need to install the dependencies yourself. After downloading, navigate to this folder in your terminal and you can see a "requirements.txt" file.
-All the external dependencies required by this tool are mentioned in that file. You can install them one by one.
-Since you're doing things manually, you might need to give this file executable rights, which can be done like this: 
-`chmod +x __main__.py`
-
-## MacOS
-You can install this from homebrew. I'm working on it, will update this section soon.
-
-## Usage
-Using this tool can be a little tricky for some people at first, but it's pretty much straightforward. Try to follow along.
-Make sure you've gone through #Prerequisites and have proper version downloaded and installed on your system from the #Installation section.
-
-## Supported Formats
-Some arguments support some specific range of values. You can see them below here.
-Values are separated via ';'.
-```
--lang, --subtitle-language : en (default);es
--ext, --subtitle-extension: srt (default);ttml;vtt;smi
-```
-
-## How To Find Hulu Cookie
-- Make sure you're in US region (use a VPN or Proxy) and open up your browser.
-- Go to hulu.com and make sure you're not signed in (If you're signed in, just logout).
-- Open developer console (Most browsers have shortcut F12).
-- Navigate to "Network" tab.
-- Log into hulu now. You'll see that "Network" tab now has many urls populated.
-- There should be a "filter" option somewhere in developer console. You need to paste and filter this URL `discover.hulu.com/content/v5/me/state`
-- You'll see only some URLs will be there now. Just select anyone of them and in that you need to see "Request Header" section.
-- Copy the "Cookie" value from it. It'll be a very long text value. Copy all of it.
-- Paste that cookie value when the hulusubs_dl asks for it.
-
-Refer to this screenshot for some clarification:
-
-[![N|Solid](https://i.imgur.com/4Z0KOn4.png)](https://i.imgur.com/4Z0KOn4.png)
-
-## Things To Remember
-- You should renew your cookie value from time to time. These cookies expire after some time. So, if you're not able to log in or get the subtitles, try to renew your cookies. Renew cookies meaning, do the steps of #GetHuluCookies again.
-- If the tool isn't working, always try to download the latest release and then try again. If it still fails, open an issue here.
-- Account COOKIES is sensitive data. Never share/post them anywhere.
-
-## Walkthrough Video
-If you're stuck somewhere or need clarification, here's an in-depth video on how to install and use this tool (Windows & Mac).
-
-## How To Contribute
-If you can make this tool better or fix some edge case(s), please feel free to `fork` this repository and then raise a `PR` after your changes.
-Just make sure that the imports are proper, basic python naming conventions are followed.
-If it's just a typo in some file, please just open an issue about it. When I have multiple open issues with typo fixes, I'll make the necessary changes. Reason being that I want to avoid useless CI getting triggered and pushing useless updates across the channel.
-
 ## Opening Issues
 If you're opening a new Issue, please keep these points in your issue description:
 - Your operating system (Windows, MacOS, Ubuntu etc.)
@@ -125,4 +140,10 @@ If you're opening a new Issue, please keep these points in your issue descriptio
 If you're opening an issue to recommend some enhancements/changes, please be as detailed as possible. Also keep these things in mind:
 - Will this "enhancement" be good for general public? or is it just for "you"? I cannot develop things just for 1 person. This tool is built for general masses and any custom enhancement would be charged.
 - What you're about to write, does it explain the problem and solution properly? IS it enough for anyone to understand?
+
+## How To Contribute
+If you can make this tool better or fix some edge case(s), please feel free to `fork` this repository and then raise a `PR` after your changes.
+Just make sure that the imports are proper, basic python naming conventions are followed.
+If it's just a typo in some file, please just open an issue about it. When I have multiple open issues with typo fixes, I'll make the necessary changes. Reason being that I want to avoid useless CI getting triggered and pushing useless updates across the channel.
+
 
