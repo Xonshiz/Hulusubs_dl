@@ -99,14 +99,6 @@ def get_playlist_body(eab_id):
     return body
 
 
-def get_language_code(language):
-    return 'en'
-
-
-def get_language_from_code(language_code):
-    return 'English'
-
-
 def create_file(file_path, file_name, data_to_write):
     if not isinstance(data_to_write, str):
         data_to_write = str(data_to_write)

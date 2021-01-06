@@ -68,7 +68,7 @@ class Hulu:
                             else:
                                 return False
         else:
-            print("Failed To Retrieve The Data.")
+            print("Failed To build payload.")
             return False
 
     def show_link(self, url, cookie_value, language, extension, download_location, proxy=None):

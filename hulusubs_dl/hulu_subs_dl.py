@@ -2,10 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import os
-# import json
 import sys
 import argparse
-import json
 from .cust_utils import *
 from .__version__ import __version__
 from .hulu import Hulu
@@ -175,7 +173,7 @@ class HuluSubsDl:
         parser.add_argument('-lang', '--subtitle-language', nargs=1, help='Decides the language of the subtitle file.',
                             default='en')
         parser.add_argument('-skip-conf', '--skip-config', action='store_true', help='Skips reading config file.')
-        parser.add_argument('-proxy', '--proxy', nargs=1, help='Provides the Proxy to be used by Hulu Tool.', default=[])
+        parser.add_argument('-proxy', '--proxy', nargs=1, help='Provides the Proxy to be used.', default=[])
         parser.add_argument('-config', '--make-config', action='store_true', help='Creates/Resets Config File & exits.')
         args = parser.parse_args()
         return args

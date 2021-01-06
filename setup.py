@@ -13,7 +13,7 @@ setuptools.setup(
     url='https://github.com/Xonshiz/Hulu-Subs-Downloader',
     download_url='https://github.com/Xonshiz/Hulu-Subs-Downloader/releases/latest',
     description="hulusubs_dl is a command line tool to download subtitles from Hulu.",
-    long_description=readme + '\n\n' + history,
+    long_description='{0}\n\n{1}'.format(readme, history),
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
     classifiers=[

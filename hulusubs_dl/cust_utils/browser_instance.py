@@ -5,13 +5,19 @@ import json
 from random import random
 
 
+def get_user_agent():
+    user_agent = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)'
+    user_agent = user_agent + ' Chrome/56.0.2924.87 Safari/537.36'
+    return user_agent
+
+
 def get_request(url, cookie_value, text_only=False, **kwargs):
     _proxy = kwargs.get("proxy")
     _rand_proxy = None
     if not cookie_value:
         raise Warning("No Cookie Value Provided. Exiting")
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
+        'User-Agent': get_user_agent(),
         'Accept-Encoding': 'gzip, deflate',
         'Cookie': cookie_value
     }
@@ -49,7 +55,7 @@ def post_request(url, data, cookie_value, **kwargs):
     if not cookie_value:
         raise Warning("No Cookie Value Provided. Exiting")
     headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
+        'User-Agent': get_user_agent(),
         'Accept-Encoding': 'gzip, deflate, br',
         'Accept': '*/*',
         'Content-Type': 'application/json',
