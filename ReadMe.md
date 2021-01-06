@@ -24,6 +24,7 @@ Person having access to your cookies can use your account. Even when you're shar
 * [Proxy Usage](#proxy-usage)
 * [Opening Issues](#opening-issues)
 * [How To Contribute](#how-to-contribute)
+* [Donations](#donations)
 
 ## Prerequisite:
 Since Hulu has now protected their content behind an "auth" wall, we can't access the website. In layman words, we need to log in to Hulu, in order to watch anything or to be able to get basic things to extract the subtitles.
@@ -148,5 +149,12 @@ If you're opening an issue to recommend some enhancements/changes, please be as 
 If you can make this tool better or fix some edge case(s), please feel free to `fork` this repository and then raise a `PR` after your changes.
 Just make sure that the imports are proper, basic python naming conventions are followed.
 If it's just a typo in some file, please just open an issue about it. When I have multiple open issues with typo fixes, I'll make the necessary changes. Reason being that I want to avoid useless CI getting triggered and pushing useless updates across the channel.
+
+# Donations
+If you're feeling generous, you can donate some $$ via Paypal:
+
+Paypal : [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/xonshiz)
+
+Any amount is appreciated :)
 
 
