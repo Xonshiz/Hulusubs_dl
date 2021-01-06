@@ -11,7 +11,6 @@ from .hulu import Hulu
 
 class HuluSubsDl:
     def __init__(self, argv, cwd):
-        print("Starting Hulu Subs Downloader")
         cookie_file_name = '/.cookie'
         config_file_name = '/.config'
         supported_languages = ['en', 'es']
@@ -37,8 +36,8 @@ class HuluSubsDl:
             if not file_written:
                 print("Couldn't write config file.")
             sys.exit(0)
-        if args.subtitle_url:
-            url = args.subtitle_url[0]
+        if args.hulu:
+            url = args.hulu[0]
         else:
             while not url:
                 url = input("Enter Hulu URL : ")
