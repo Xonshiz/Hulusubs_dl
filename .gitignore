@@ -32,3 +32,5 @@ hulusubs_dl.egg-info/*
 hulusubs_dl/cust_utils/__pycache__/*
 hulusubs_dl/cust_utils/__pycache__/utils.cpython-37.pyc
 hulusubs_dl/cust_utils/__pycache__/browser_instance.cpython-37.pyc
+hulusubs_dl/build/*
+hulusubs_dl/dist/*
