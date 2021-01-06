@@ -1,5 +1,5 @@
 # Hulu Subs Downloader | [![Build Status](https://travis-ci.org/Xonshiz/Hulu-Subs-Downloader.svg?branch=master)](https://travis-ci.org/Xonshiz/Hulu-Subs-Downloader) | [![GitHub release](https://img.shields.io/github/release/xonshiz/Hulu-Subs-Downloader.svg?style=flat-square)](https://github.com/xonshiz/Hulu-Subs-Downloader/releases/latest) | [![Github All Releases](https://img.shields.io/github/downloads/xonshiz/Hulu-Subs-Downloader/total.svg?style=flat-square)](https://github.com/xonshiz/Hulu-Subs-Downloader/releases) [![Open Source Helpers](https://www.codetriage.com/xonshiz/hulu-subs-downloader/badges/users.svg)](https://www.codetriage.com/xonshiz/hulu-subs-downloader)
-Hulusubs_dl is a command line tool to download subtitles from Hulu. Made for educational purposes (Hehe).
+Hulusubs_dl is a command line tool to download subtitles from Hulu. Made for educational purposes.
 Since it's Python based, it can be easily deployed on every platform (Windows, macOS, Linux/Ubuntu etc.).
 You can find the installation instructions in #Installation Section of this readme.
 
@@ -8,29 +8,29 @@ This tool is based around and work with your hulu account's COOKIES. But, please
 Person having access to your cookies can use your account. Even when you're sharing any script failure, remember to not share/post your account cookies. 
 
 ## Table of Content
-* [Prerequisite](#test)
-* [Python Support](#test)
-* [Usage](#test)
-* [Things To Remember](#test)
-* [How To Find Hulu Cookie](#test)
-* [Walkthrough Video](#test)
-* [Installation](#dependencies-installation)
-    * [Windows](#windows-)
-    * [Linux/Debian/Ubuntu](#linuxdebian-)
-    * [Mac OS X](#mac-os-x-)
-* [List of Arguments](#test)
-* [Supported Formats](#test)
-* [Proxy Usage](#test)
-* [Opening Issues](#test)
-* [How To Contribute](#test)
+* [Prerequisite](#prerequisite)
+* [Python Support](#python-support)
+* [Usage](#usage)
+* [Things To Remember](#things-to-remember)
+* [How To Find Hulu Cookie](#how-to-find-hulu-cookie)
+* [Walkthrough Video](#walkthrough-video)
+* [Installation](#installation)
+    * [Windows](#windows-exe-binary-installation)
+    * [Linux/Debian/Ubuntu](#linuxubuntukubuntu-or-any-other-linux-flavor-installation)
+    * [Mac OS X](#macos)
+* [List of Arguments](#list-of-arguments)
+* [Supported Formats](#supported-formats)
+* [Proxy Usage](#proxy-usage)
+* [Opening Issues](#opening-issues)
+* [How To Contribute](#how-to-contribute)
 
 ## Prerequisite:
 Since Hulu has now protected their content behind an "auth" wall, we can't access the website. In layman words, we need to log in to Hulu, in order to watch anything or to be able to get basic things to extract the subtitles.
-When you run the tool first time, it asks for "cookie" value. You can see it in #HowToFindCookie section of this readme.
+When you run the tool first time, it asks for "cookie" value. You can see it in [`#How To Find Hulu Cookie`](#how-to-find-hulu-cookie) section of this readme.
 Also, there's a "configuration file" that is automatically made by this tool. It has some basic settings that you can use as "default" values.
 Some values saved in config file are:
 - Default Download Location: Tool will download the subtitles files in this directory (the tool makes proper folders).
-- Extension: Extention of final subtitle file. You can choose from "Srt, ttml, vtt". Most players will play SRT subtitle files.
+- Extension: Extension of final subtitle file. You can choose from "Srt, ttml, vtt, smi". Most players will play SRT subtitle files.
 - Language: Hulu has 2 languages available at the moment, i.e., "English" & "Spanish". You can download either of them. Type in "en" or "es" for respective languages.
 
 You can specify these values in the file once and then tool will use these defaults. You can use "arguments" to override these anytime. You would need to pass the argument with the script (described later in this readme).
@@ -40,10 +40,10 @@ This script should run on both Python 2 and 3. Check travisCI builds for exact p
 
 ## Usage
 Using this tool can be a little tricky for some people at first, but it's pretty much straightforward. Try to follow along.
-Make sure you've gone through #Prerequisites and have proper version downloaded and installed on your system from the #Installation section.
+Make sure you've gone through [`#Prerequisites`](#prerequisite) and have proper version downloaded and installed on your system from the #Installation section.
 
 ## Things To Remember
-- You should renew your cookie value from time to time. These cookies expire after some time. So, if you're not able to log in or get the subtitles, try to renew your cookies. Renew cookies meaning, do the steps of #GetHuluCookies again.
+- You should renew your cookie value from time to time. These cookies expire after some time. So, if you're not able to log in or get the subtitles, try to renew your cookies. Renew cookies meaning, do the steps of [`#How To Find Hulu Cookie`](#how-to-find-hulu-cookie) again.
 - If the tool isn't working, always try to download the latest release and then try again. If it still fails, open an issue here.
 - Account COOKIES is sensitive data. Never share/post them anywhere.
 
@@ -71,7 +71,7 @@ Video will be sharing in a week or so from now.
 If you're on windows, it's recommended that you download and use "windows exe binary" to save your time.
 You can download the latest windows release from [RELEASE SECTION](https://github.com/Xonshiz/Hulu-Subs-Downloader/releases/latest)
 Go there and download the ".exe" file. Then follow the usage instructions in #Usage.
-After downloading this exe file, place it in some location that you can access. Because you would need to run this script everytime you want to download subtitles.
+After downloading this exe file, place it in some location that you can access. Because you would need to run this script every time you want to download subtitles.
 Don't put this in your "Windows" or "System" folders. It might cause conflicts with permissions.
 
 ### Linux/Ubuntu/Kubuntu or any other linux flavor Installation
@@ -87,10 +87,11 @@ Since you're doing things manually, you might need to give this file executable 
 `chmod +x __main__.py`
 
 ### MacOS
-You can install this from homebrew. I'm working on it, will update this section soon.
+You can install this from Homebrew. I'm working on it, will update this section soon.
 
 ## List of Arguments
 Currently, the script supports these arguments :
+
 ```
 -h, --help                             Prints the basic help menu of the script and exits.
 -url,--hulu-url                        Url of the Hulu video or series to download subtitles from.
@@ -107,6 +108,7 @@ Currently, the script supports these arguments :
 ## Supported Formats
 Some arguments support some specific range of values. You can see them below here.
 Values are separated via ';'.
+
 ```
 -lang, --subtitle-language : en (default);es
 -ext, --subtitle-extension: srt (default);ttml;vtt;smi
@@ -132,7 +134,7 @@ If you provide multiple proxies, the tool randomly chooses either of the proxies
 ## Opening Issues
 If you're opening a new Issue, please keep these points in your issue description:
 - Your operating system (Windows, MacOS, Ubuntu etc.)
-- Operating System verion: Windows 10/MacOS Catalina/Ubuntu 16 etc.
+- Operating System version: Windows 10/MacOS Catalina/Ubuntu 16 etc.
 - Which version are you using: Python Script/Windows EXE Binary/MacOS Homebrew
 - URL to the Hulu series which failed.
 - Detailed Description of the issue you're facing.
