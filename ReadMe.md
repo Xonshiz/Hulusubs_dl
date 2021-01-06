@@ -1,9 +1,10 @@
-# Hulu Subs Downloader | [![Build Status](https://travis-ci.org/Xonshiz/Hulu-Subs-Downloader.svg?branch=master)](https://travis-ci.org/Xonshiz/Hulu-Subs-Downloader) | [![GitHub release](https://img.shields.io/github/release/xonshiz/Hulu-Subs-Downloader.svg?style=flat-square)](https://github.com/xonshiz/Hulu-Subs-Downloader/releases/latest) | [![Github All Releases](https://img.shields.io/github/downloads/xonshiz/Hulu-Subs-Downloader/total.svg?style=flat-square)](https://github.com/xonshiz/Hulu-Subs-Downloader/releases) [![Open Source Helpers](https://www.codetriage.com/xonshiz/hulu-subs-downloader/badges/users.svg)](https://www.codetriage.com/xonshiz/hulu-subs-downloader)
+# Hulusubs_dl | [![Build Status](https://travis-ci.com/Xonshiz/Hulu-Subs-Downloader.svg?branch=master)](https://travis-ci.com/Xonshiz/Hulu-Subs-Downloader) | [![GitHub release](https://img.shields.io/github/release/xonshiz/Hulu-Subs-Downloader.svg?style=flat-square)](https://github.com/xonshiz/Hulu-Subs-Downloader/releases/latest) | [![Github All Releases](https://img.shields.io/github/downloads/xonshiz/Hulu-Subs-Downloader/total.svg?style=flat-square)](https://github.com/xonshiz/Hulu-Subs-Downloader/releases) [![Open Source Helpers](https://www.codetriage.com/xonshiz/hulu-subs-downloader/badges/users.svg)](https://www.codetriage.com/xonshiz/hulu-subs-downloader)
 Hulusubs_dl is a command line tool to download subtitles from Hulu. Made for educational purposes.
 Since it's Python based, it can be easily deployed on every platform (Windows, macOS, Linux/Ubuntu etc.).
 You can find the installation instructions in #Installation Section of this readme.
 
-#### **NOTE:**
+**NOTE:**
+
 This tool is based around and work with your hulu account's COOKIES. But, please do remember that you should NEVER share your account cookies with anyone and anywhere.
 Person having access to your cookies can use your account. Even when you're sharing any script failure, remember to not share/post your account cookies. 
 
