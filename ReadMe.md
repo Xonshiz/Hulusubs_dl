@@ -72,7 +72,7 @@ Video will be sharing in a week or so from now.
 ### Windows EXE Binary Installation
 If you're on windows, it's recommended that you download and use "windows exe binary" to save your time.
 You can download the latest windows release from [RELEASE SECTION](https://github.com/Xonshiz/Hulu-Subs-Downloader/releases/latest)
-Go there and download the ".exe" file. Then follow the usage instructions in #Usage.
+Go there and download the ".exe" file. Then follow the usage instructions in [Usage](#usage).
 After downloading this exe file, place it in some location that you can access. Because you would need to run this script every time you want to download subtitles.
 Don't put this in your "Windows" or "System" folders. It might cause conflicts with permissions.
 
@@ -81,7 +81,9 @@ Since I cannot generate a "binary" for these distributions, you will have to ins
 It's pretty much straightforward, you can just use pip to install hulusubs_dl.
 `pip install hulusubs_dl`
 
-If for some reason, you're unable to use `pip`, try with `easy_install`. If everything fails, you can download code from this repository and then run.
+If for some reason, you're unable to use `pip`, try with `easy_install`. 
+
+If everything fails, you can download code from this repository and then run.
 But, now you'll need to install the dependencies yourself. After downloading, navigate to this folder in your terminal and you can see a "requirements.txt" file.
 You can install all dependencies via `pip install -r requirements.txt`
 All the external dependencies required by this tool are mentioned in that file. You can install them one by one.
@@ -89,7 +91,11 @@ Since you're doing things manually, you might need to give this file executable 
 `chmod +x __main__.py`
 
 ### MacOS
-You can install this from Homebrew. I'm working on it, will update this section soon.
+If you're on macOS, it's recommended that you download and use "macOS binary" to save your time.
+You can download the latest macOS release from [RELEASE SECTION](https://github.com/Xonshiz/Hulu-Subs-Downloader/releases/latest)
+Go there and download the "hulusubs_dl" file. Do verify that you're not downloading "hulusubs_dl.exe". Then follow the usage instructions in [Usage](#usage).
+After downloading this file, place it in some location that you can access. Because you would need to run this script every time you want to download subtitles.
+Don't put this in restricted places like "/bin/ or "System" folders. It might cause conflicts with permissions.
 
 ## List of Arguments
 Currently, the script supports these arguments :
