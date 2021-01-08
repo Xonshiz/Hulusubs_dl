@@ -152,9 +152,25 @@ If you're opening an issue to recommend some enhancements/changes, please be as 
 - What you're about to write, does it explain the problem and solution properly? IS it enough for anyone to understand?
 
 ## How To Contribute
-If you can make this tool better or fix some edge case(s), please feel free to `fork` this repository and then raise a `PR` after your changes.
-Just make sure that the imports are proper, basic python naming conventions are followed.
-If it's just a typo in some file, please just open an issue about it. When I have multiple open issues with typo fixes, I'll make the necessary changes. Reason being that I want to avoid useless CI getting triggered and pushing useless updates across the channel.
+- If you can make this tool better or fix some edge case(s), please feel free to `fork` this repository and then raise a `PR` after your changes.
+- Send PRs to `dev` branch only (don't send direct to master).
+- Just make sure that the imports are proper, basic python naming conventions are followed.
+- Add the necessary information about the change in "changelog.md".
+- Remember to bump up the version in __version__.py. (Read how to name the version below).
+- If it's just a typo in some file, please just open an issue about it. When I have multiple open issues with typo fixes, I'll make the necessary changes. Reason being that I want to avoid useless CI getting triggered and pushing useless updates across the channel.
+
+### Version Convention
+You can find the version in `__verion__.py`. Just update the value according to these rules.
+
+Convention: Year.Month.Date
+
+So, if you're making that PR on 23rd June, 2020, version would be : 2020.06.23
+
+What if you've raised multiple PRs on same day? Simple, just append version for the day like:
+
+Convention: Year.Month.Date.RecurrenceCount
+
+Again, taking example of 23rd June, 2020, let's say you've made 3 different PRs, different versions would be: `2020.06.23.1`, `2020.06.23.2` and `2020.06.23.3`
 
 # Donations
 If you're feeling generous, you can donate some $$ via Paypal:
