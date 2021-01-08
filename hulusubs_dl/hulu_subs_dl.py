@@ -4,6 +4,8 @@
 import os
 import sys
 import argparse
+import logging
+import platform
 from .cust_utils import *
 from .__version__ import __version__
 from .hulu import Hulu
@@ -23,12 +25,33 @@ class HuluSubsDl:
         self.subtitle_lang = None
         self.subtitle_extension = None
         self.proxy = []
+        self.logger = False
         skip_config = False
 
         args = self.add_argparse()
         if args.version:
             print(__version__)
             sys.exit(0)
+        if args.verbose:
+            print("\n***Starting the script in Verbose Mode***\n")
+            try:
+                os.remove("Error_Log.log")
+                # with open(str(args.download_directory[0]) + str(os.sep) + "Error_Log.log", "w") as wf:
+                #     wf.write("Writing...")
+            except Exception as VerboseError:
+                # print(VerboseError)
+                pass
+                logging.basicConfig(format='%(levelname)s: %(message)s',
+                                    filename=str(args.download_directory[0]) + str(os.sep) + "Hulusubs_dl_Error_Log.log",
+                                    level=logging.DEBUG)
+            logging.debug("Arguments Provided : %s" % args)
+            logging.debug("Operating System : %s - %s - %s" % (platform.system(),
+                                                               platform.release(),
+                                                               platform.version()
+                                                               ))
+            logging.debug("Python Version : %s (%s)" % (platform.python_version(), platform.architecture()[0]))
+            logging.debug("Hulusubs_dl Version : {0}".format(__version__))
+            self.logger = True
         if args.make_config:
             config_object = self.get_config_file_data()
             config_data = self.ask_config_file_data(config_object)
@@ -49,6 +72,7 @@ class HuluSubsDl:
             print("Reading Configuration File.")
             if path_util.file_exists(cwd, config_file_name):
                 config_file_data = eval(utils.read_file_data(cwd, config_file_name))
+                logging.debug("\n----\nconfig_file_data: {0}\n----\n".format(config_file_data))
             else:
                 # ask config data from user
                 config_object = self.get_config_file_data()
@@ -85,6 +109,8 @@ class HuluSubsDl:
 
         if not args.set_cookie and path_util.file_exists(cwd, cookie_file_name):
             cookie_file_data = utils.read_file_data(cwd, cookie_file_name)
+            if not cookie_file_data:
+                logging.debug("No Cookie Found")
         else:
             cookie_from_user = self.get_cookie_from_user()
             cookie_written = utils.create_file(cwd, cookie_file_name,
@@ -102,8 +128,11 @@ class HuluSubsDl:
                 else:
                     current_try += 1
 
-        # Everything is set, let's call the main boss
-        Hulu(url, cookie_file_data, self.subtitle_lang, self.subtitle_extension, self.download_location, self.proxy)
+        try:
+            # Everything is set, let's call the main boss
+            Hulu(url, cookie_file_data, self.subtitle_lang, self.subtitle_extension, self.download_location, self.proxy)
+        except Exception as HuluException:
+            logging.debug("HuluException: {0}".format(HuluException))
 
     def set_config_file_data(self, config_file_data):
         # We'll map the data to variables in this method
@@ -174,5 +203,7 @@ class HuluSubsDl:
         parser.add_argument('-skip-conf', '--skip-config', action='store_true', help='Skips reading config file.')
         parser.add_argument('-proxy', '--proxy', nargs=1, help='Provides the Proxy to be used.', default=[])
         parser.add_argument('-config', '--make-config', action='store_true', help='Creates/Resets Config File & exits.')
+        parser.add_argument("-v", "--verbose", help="Prints important debugging messages on screen.", action="store_true")
         args = parser.parse_args()
         return args
+

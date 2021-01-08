@@ -7,6 +7,7 @@ from . import hulu_api
 import os
 import re
 from time import sleep
+import logging
 
 
 class Hulu:
@@ -19,20 +20,27 @@ class Hulu:
             print("URL Not Supported")
 
     def episode_link(self, url, cookie_value, language, extension, download_location, proxy=None):
+        logging.debug('Called: episode_link()')
         transcript_urls = {}
         eab_id = str(url).split('/watch/')[-1].replace('/', '')
+        logging.debug('initial eab_id: {0}'.format(eab_id))
         eab_id_information = hulu_api.get_full_eab_id(eab_id, cookie_value)
+        logging.debug('\n----\neab_id_information: {0}\n----\n'.format(eab_id_information))
         eab_id = dict(eab_id_information).get('eab_id', None)
+        logging.debug('eab_id: {0}'.format(eab_id))
         if not eab_id:
             print("You seem to be out of USA. Use a VPN/Proxy.")
             return False
         payload = utils.get_playlist_body(eab_id=eab_id)
+        logging.debug('\n----\npayload: {0}\n----\n'.format(payload))
         if payload:
             # Logic to find the URL for the language and extension provided and download it.
             playlist_info = hulu_api.get_playlist_information(payload, cookie_value)
+            logging.debug('\n----\nplaylist_info: {0}\n----\n'.format(playlist_info))
             if playlist_info:
                 playlist_info = dict(playlist_info)
                 transcripts = playlist_info.get('transcripts_urls', None)
+                logging.debug('\n----\ntranscripts: {0}\n----\n'.format(transcripts))
                 if not transcripts:
                     print("Couldn't find transcript URLs.Exiting.")
                     return False
@@ -41,19 +49,23 @@ class Hulu:
                     # we will convert webvtt to any other subtitle format.So,we'll use that URL to get subtitle content.
                     if extension not in utils.DEFAULT_SUB_EXT:
                         transcript_urls[extension] = transcript_urls.get('webvtt', {})
+                    logging.debug('\n----\ntranscript_urls: {0}\n----\n'.format(transcript_urls))
                     video_metadata = dict(hulu_api.get_eab_id_metadata(eab_id, cookie_value, language)).get('items', {})
+                    logging.debug('\n----\nvideo_metadata: {0}\n----\n'.format(video_metadata))
                     video_metadata = dict(list(video_metadata)[0])
                     series_name = utils.get_clean_path_name(video_metadata.get('series_name', "No Name Found"))
                     season_number = video_metadata.get('season', "01")
                     episode_number = video_metadata.get('number', "01")
                     file_name = '{0} - S{1}E{2} [{3} Sub].{4}'.format(series_name, season_number, episode_number,
                                                                       language, extension)
+                    logging.debug('\n----\nfile_name: {0}\n----\n'.format(file_name))
                     print("Downloading Subtitle For {0}".format(file_name))
                     selected_extension = transcript_urls.get(extension, None)
                     if not selected_extension:
                         print("Couldn't find {0} in Hulu".format(extension))
                     else:
                         url = str(dict(selected_extension).get(language, None)).strip()
+                        logging.debug('subtitle url eab_id: {0}'.format(url))
                         subtitle_content = browser_instance.get_request(url, cookie_value, text_only=True)
                         path_created = path_util.create_paths(
                             download_location + os.sep + series_name + os.sep + season_number)
@@ -72,11 +84,14 @@ class Hulu:
 
     def show_link(self, url, cookie_value, language, extension, download_location, proxy=None):
         eab_id_matches = re.findall(r'-([0-9A-Za-z]+)', str(url).split('/series/')[-1])
+        logging.debug('eab_id_matches: {0}'.format(eab_id_matches))
         if eab_id_matches and len(eab_id_matches) > 1:
             eab_id_matches.pop(0)
             eab_id = '-'.join(eab_id_matches)
+            logging.debug('initial eab_id: {0}'.format(eab_id))
             series_metadata = {}
             series_metadata = hulu_api.get_series_metadata(eab_id, cookie_value)
+            logging.debug('\n----\ninitial series_metadata: {0}\n----\n'.format(series_metadata))
             if not series_metadata:
                 print("Couldn't get series metadata. Exiting")
                 return False
@@ -90,6 +105,7 @@ class Hulu:
                         episodes_metadata = curr_item
                         break
                 series_metadata = dict(episodes_metadata).get('items', {})
+            logging.debug('\n----\nseries_metadata: {0}\n----\n'.format(series_metadata))
             season_numbers = []
             season_episodes = []
             if not series_metadata:
@@ -102,6 +118,7 @@ class Hulu:
                 if current_id:
                     season_numbers.append(str(current_id).split('::')[-1])
             print("Getting Data For {0} Seasons.".format(len(season_numbers)))
+            logging.debug('\n----\nseason_numbers: {0}\n----\n'.format(season_numbers))
             for season in season_numbers:
                 # For every season, we'll collect EAB IDs of the episodes.
                 season_metadata = dict(hulu_api.get_series_season_metadata(eab_id, cookie_value, season)).get('items',
@@ -109,6 +126,7 @@ class Hulu:
                 for season_item in season_metadata:
                     season_episodes.append(dict(season_item).get('id', None))
             print("Total Episodes To Download: {0}".format(len(season_episodes)))
+            logging.debug('\n----\nseason_episodes: {0}\n----\n'.format(season_episodes))
             for episode_eab in season_episodes:
                 if episode_eab:
                     sleep(1)  # Let's not bombard Hulu's API with requests.

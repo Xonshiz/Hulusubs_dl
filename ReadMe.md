@@ -1,4 +1,4 @@
-# Hulusubs_dl | [![Build Status](https://travis-ci.com/Xonshiz/Hulu-Subs-Downloader.svg?branch=master)](https://travis-ci.com/Xonshiz/Hulu-Subs-Downloader) | [![GitHub release](https://img.shields.io/github/release/xonshiz/Hulu-Subs-Downloader.svg?style=flat-square)](https://github.com/xonshiz/Hulu-Subs-Downloader/releases/latest) | [![Github All Releases](https://img.shields.io/github/downloads/xonshiz/Hulu-Subs-Downloader/total.svg?style=flat-square)](https://github.com/xonshiz/Hulu-Subs-Downloader/releases) [![Open Source Helpers](https://www.codetriage.com/xonshiz/hulu-subs-downloader/badges/users.svg)](https://www.codetriage.com/xonshiz/hulu-subs-downloader)
+# Hulusubs_dl | [![Build Status](https://travis-ci.com/Xonshiz/Hulusubs_dl.svg?branch=master)](https://travis-ci.com/github/Xonshiz/Hulusubs_dl) | [![GitHub release](https://img.shields.io/github/v/release/xonshiz/hulusubs_dl.svg?style=flat-square)](https://github.com/Xonshiz/Hulusubs_dl/releases/) | [![Github All Releases](https://img.shields.io/github/downloads/xonshiz/Hulusubs_dl/total.svg?style=flat-square)](https://github.com/xonshiz/Hulusubs_dl/releases) [![Open Source Helpers](https://www.codetriage.com/xonshiz/hulu-subs-downloader/badges/users.svg)](https://www.codetriage.com/xonshiz/hulu-subs-downloader)
 Hulusubs_dl is a command line tool to download subtitles from Hulu. Made for educational purposes.
 Since it's Python based, it can be easily deployed on every platform (Windows, macOS, Linux/Ubuntu etc.).
 You can find the installation instructions in #Installation Section of this readme.
@@ -103,7 +103,8 @@ Currently, the script supports these arguments :
 ```
 -h, --help                             Prints the basic help menu of the script and exits.
 -url,--hulu-url                        Url of the Hulu video or series to download subtitles from.
--V,--version                           Prints the VERSION and exits.
+--version                              Prints the VERSION and exits.
+-v,--verbose                           Enables Verbose logging.
 -dd,--download-directory               Specifies custom download location for the subtitles.
 -cookie, --set-cookie                  Saves/Updates Hulu Cookie
 -ext, --subtitle-extension             Specifies the format of final subtitle file. Default is SRT.
@@ -141,6 +142,7 @@ If you provide multiple proxies, the tool randomly chooses either of the proxies
 
 ## Opening Issues
 If you're opening a new Issue, please keep these points in your issue description:
+- Run the script with `-v` or `--verbose` option and upload the errorlog file that tool creates. (remove your login credentials from it).
 - Your operating system (Windows, MacOS, Ubuntu etc.)
 - Operating System version: Windows 10/MacOS Catalina/Ubuntu 16 etc.
 - Which version are you using: Python Script/Windows EXE Binary/MacOS Homebrew
