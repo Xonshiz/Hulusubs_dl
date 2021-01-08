@@ -42,7 +42,7 @@ class HuluSubsDl:
                 # print(VerboseError)
                 pass
                 logging.basicConfig(format='%(levelname)s: %(message)s',
-                                    filename=str(args.download_directory[0]) + str(os.sep) + "Hulusubs_dl_Error_Log.log",
+                                    filename=str(cwd) + str(os.sep) + "Hulusubs_dl_Error_Log.log",
                                     level=logging.DEBUG)
             logging.debug("Arguments Provided : %s" % args)
             logging.debug("Operating System : %s - %s - %s" % (platform.system(),
