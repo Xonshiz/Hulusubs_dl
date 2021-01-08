@@ -3,6 +3,7 @@
 import requests
 import json
 from random import random
+import logging
 
 
 def get_user_agent():
@@ -33,6 +34,9 @@ def get_request(url, cookie_value, text_only=False, **kwargs):
         "http": _rand_proxy,
         "https": _rand_proxy
     }
+
+    logging.debug('GET url: {0}'.format(url))
+    logging.debug('GET proxy: {0}'.format(proxy))
 
     sess = requests.session()
     connection = sess.get(url, headers=headers, proxies=proxy)
@@ -73,6 +77,8 @@ def post_request(url, data, cookie_value, **kwargs):
         "http": _rand_proxy,
         "https": _rand_proxy
     }
+    logging.debug('POST url: {0}'.format(url))
+    logging.debug('POST proxy: {0}'.format(proxy))
     sess = requests.session()
     connection = sess.post(url, data=data, headers=headers, proxies=proxy)
 

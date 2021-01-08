@@ -1,0 +1,4 @@
+DEBUG: Arguments Provided : Namespace(download_directory=None, hulu_url=None, make_config=False, proxy=[], set_cookie=None, skip_config=False, subtitle_extension='srt', subtitle_language='en', verbose=True, version=False)
+DEBUG: Operating System : Darwin - 20.2.0 - Darwin Kernel Version 20.2.0: Wed Dec  2 20:39:59 PST 2020; root:xnu-7195.60.75~1/RELEASE_X86_64
+DEBUG: Python Version : 3.8.2 (64bit)
+DEBUG: Hulusubs_dl Version : 2021.01.08.1
