@@ -90,7 +90,7 @@ matrix:
         - cd hulusubs_dl
         - python __main__.py --version
         - pyinstaller --onefile --hidden-import=queue "__main__.py"
-        - tree /f
+        - dir /s /b /o:gn
         - cd dist
         - rename __main__.exe hulusubs_dl.exe
         - cd ..
