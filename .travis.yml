@@ -92,7 +92,8 @@ matrix:
         - pyinstaller --onefile --hidden-import=queue "__main__.py"
         - cd dist
         - dir -s
-        - rename __main__.exe hulusubs_dl.exe
+        - ren "__main__.exe" "hulusubs_dl.exe"
+        - dir -s
         - cd ..
         - cd ..
       notifications:
