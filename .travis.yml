@@ -59,7 +59,7 @@ matrix:
       install:
         - "python --version"
         - "pip install requests"
-        - "sudo pip install pyinstaller"
+        - "pip install pyinstaller"
       script:
         - cd hulusubs_dl
         - python __main__.py --version
@@ -124,13 +124,14 @@ matrix:
             branch: master
     - os: osx
       language: python
-      python: "3.8"
+      python:
+        - 3.8
       before_install:
         - python3 --version
         - python3 -m pip install --upgrade pip
       install:
-        - "pip3 install -r requirements.txt"
-        - "pip3 install pyinstaller"
+        - "pip install -r requirements.txt"
+        - "pip install pyinstaller"
       script:
         - cd hulusubs_dl
         - python3 __main__.py --version
