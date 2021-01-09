@@ -132,6 +132,6 @@ def read_file_data(file_path, file_name):
 
 
 def get_clean_path_name(path_name):
-    remove_punctuation_map = dict((ord(char), None) for char in '\/*?:"<>|,;\'')
-    path_name.translate(remove_punctuation_map)
+    for cha in '\/*?:"<>|,;\'':
+        path_name = path_name.replace(cha, ' -')
     return path_name
