@@ -51,11 +51,12 @@ matrix:
           - xonshiz@gmail.com
     - os: linux
       language: sh
-      python: "3.8"
+      python: 3.8
+      dist: xenial
       before_install:
         - "pip install --upgrade pip"
       install:
-        - "python3 --version"
+        - "python --version"
         - "pip install requests"
         - "sudo pip install pyinstaller"
       script:
