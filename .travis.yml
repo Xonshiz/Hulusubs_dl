@@ -2,10 +2,10 @@ matrix:
   include:
     - language: python
       python:
-        - 2.6
+        - 3.8
       dist: trusty
       install:
-        - "pip install -r requirements.txt --user"
+        - "pip install -r requirements.txt"
       script:
         - cd hulusubs_dl
         - python __main__.py --version
@@ -18,7 +18,7 @@ matrix:
         - 2.7
       dist: trusty
       install:
-        - "pip install -r requirements.txt --user"
+        - "pip install -r requirements.txt"
       script:
         - cd hulusubs_dl
         - python __main__.py --version
@@ -41,7 +41,7 @@ matrix:
         - 3.5
       dist: trusty
       install:
-        - "pip install -r requirements.txt --user"
+        - "pip install -r requirements.txt"
       script:
         - cd hulusubs_dl
         - python __main__.py --version
@@ -51,9 +51,9 @@ matrix:
           - xonshiz@gmail.com
     - os: linux
       language: sh
-      python: "3.8"
+      python: "2.7"
       install:
-        - "pip install -r requirements.txt --user"
+        - "pip install -r requirements.txt"
         - "pip install pyinstaller"
       script:
         - cd hulusubs_dl
@@ -90,7 +90,7 @@ matrix:
         - python -m pip install --upgrade pip
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
       install:
-        - "pip install -r requirements.txt --user"
+        - "pip install -r requirements.txt"
         - "pip install pyinstaller"
       script:
         - cd hulusubs_dl
