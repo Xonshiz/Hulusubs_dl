@@ -40,10 +40,8 @@ matrix:
         email:
           - xonshiz@gmail.com
     - language: python
-      jobs:
-        include:
-          - python: 3.8
-            dist: xenial
+      python: 3.8
+      dist: xenial
       install:
         - "pip install -r requirements.txt"
         - "pip install pyinstaller"
