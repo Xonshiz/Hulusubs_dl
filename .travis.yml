@@ -50,8 +50,9 @@ matrix:
         email:
           - xonshiz@gmail.com
     - os: linux
-      language: sh
-      python: 3.8
+      language: python
+      python:
+        - 3.8
       dist: xenial
       before_install:
         - "pip install --upgrade pip"
@@ -122,7 +123,7 @@ matrix:
           on:
             branch: master
     - os: osx
-      language: sh
+      language: python
       python: "3.8"
       before_install:
         - python3 --version
