@@ -2,7 +2,7 @@ matrix:
   include:
     - language: python
       python:
-        - 3.8
+        - 2.6
       dist: trusty
       install:
         - "pip install -r requirements.txt"
@@ -51,9 +51,9 @@ matrix:
           - xonshiz@gmail.com
     - os: linux
       language: sh
-      python: "2.7"
+      python: "3.8"
       install:
-        - "pip install -r requirements.txt"
+        - "pip install requests"
         - "pip install pyinstaller"
       script:
         - cd hulusubs_dl
