@@ -71,9 +71,6 @@ matrix:
           file: "hulusubs_dl/dist/hulusubs_dl_linux"
           skip_cleanup: true
           draft: false
-          on:
-            tags: true
-            branch: master
     - os: windows
       language: sh
       python: "3.8"
@@ -101,9 +98,6 @@ matrix:
           file: "hulusubs_dl/dist/__main__.exe"
           skip_cleanup: true
           draft: false
-          on:
-            tags: true
-            branch: master
     - os: osx
       language: sh
       python: "3.8"
@@ -130,6 +124,3 @@ matrix:
           file: "hulusubs_dl/dist/hulusubs_dl_osx"
           skip_cleanup: true
           draft: false
-          on:
-            tags: true
-            branch: master
