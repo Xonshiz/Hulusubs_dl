@@ -78,9 +78,11 @@ matrix:
       language: sh
       python: "3.8"
       before_install:
-        - choco install python3
+        - choco install python --version 3.8.0
+        - python --version
         - export PATH="/c/Python38:/c/Python38/Scripts:$PATH"
-        - python -m pip install --upgrade pip wheel
+        - python -m pip install --upgrade pip
+      env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
       install:
         - "pip install -r requirements.txt"
         - "pip install pyinstaller"
@@ -89,7 +91,7 @@ matrix:
         - python __main__.py --version
         - pyinstaller --onefile --hidden-import=queue "__main__.py"
         - dir -s
-        - mv "dist/__main__" "dist/hulusubs_dl_linux"
+        - rename "dist/__main__.exe" "dist/hulusubs_dl.exe"
         - cd ..
       notifications:
         email:
@@ -98,7 +100,7 @@ matrix:
         - provider: releases
           api_key: $GITHUB_TOKEN
           name: "Hulusubs_dl"
-          file: "dist/hulusubs_dl_linux"
+          file: "dist/hulusubs_dl.exe"
           skip_cleanup: true
           draft: true
           on:
