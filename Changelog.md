@@ -4,3 +4,5 @@
 - Proxy support added.
 - Fix for #22
 - Added Verbose Logging.
+- `#22` was still happening. Verified and fixed it.
+- Updated TravisCI Configs to do a Github Release.
