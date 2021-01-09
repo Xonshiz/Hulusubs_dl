@@ -53,8 +53,9 @@ matrix:
       language: sh
       python: "3.8"
       install:
-        - "pip install requests"
-        - "pip install pyinstaller"
+        - "echo python --version"
+        - "pip3 install requests"
+        - "pip3 install pyinstaller"
       script:
         - cd hulusubs_dl
         - python __main__.py --version
