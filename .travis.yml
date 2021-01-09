@@ -5,7 +5,7 @@ matrix:
         - 2.6
       dist: trusty
       install:
-        - "pip install -r requirements.txt"
+        - "pip install -r requirements.txt --user"
       script:
         - cd hulusubs_dl
         - python __main__.py --version
@@ -18,7 +18,7 @@ matrix:
         - 2.7
       dist: trusty
       install:
-        - "pip install -r requirements.txt"
+        - "pip install -r requirements.txt --user"
       script:
         - cd hulusubs_dl
         - python __main__.py --version
@@ -41,7 +41,7 @@ matrix:
         - 3.5
       dist: trusty
       install:
-        - "pip install -r requirements.txt"
+        - "pip install -r requirements.txt --user"
       script:
         - cd hulusubs_dl
         - python __main__.py --version
@@ -53,14 +53,12 @@ matrix:
       language: sh
       python: "3.8"
       install:
-        - "pip install -r requirements.txt"
+        - "pip install -r requirements.txt --user"
         - "pip install pyinstaller"
       script:
         - cd hulusubs_dl
         - python __main__.py --version
-        - pyinstaller --onefile --hidden-import=queue "__main__.py"
-        - ls
-        - mv "dist/__main__" "dist/hulusubs_dl_linux"
+        - pyinstaller --onefile --hidden-import=queue "__main__.py" -n "hulusubs_dl_linux"
         - cd ..
       notifications:
         email:
@@ -92,12 +90,12 @@ matrix:
         - python -m pip install --upgrade pip
       env: PATH=/c/Python38:/c/Python38/Scripts:$PATH
       install:
-        - "pip install -r requirements.txt"
+        - "pip install -r requirements.txt --user"
         - "pip install pyinstaller"
       script:
         - cd hulusubs_dl
         - python __main__.py --version
-        - pyinstaller --onefile --hidden-import=queue "__main__.py"
+        - pyinstaller --onefile --hidden-import=queue "__main__.py" -n "hulusubs_dl.exe"
         - cd ..
       notifications:
         email:
@@ -131,10 +129,8 @@ matrix:
       script:
         - cd hulusubs_dl
         - python3 __main__.py --version
-        - pyinstaller --onefile --hidden-import=queue "__main__.py"
+        - pyinstaller --onefile --hidden-import=queue "__main__.py"  -n "hulusubs_dl_osx"
         - export huluVersion=`cat version.txt`
-        - ls
-        - mv "dist/__main__" "dist/hulusubs_dl_osx"
         - cd ..
       notifications:
         email:
