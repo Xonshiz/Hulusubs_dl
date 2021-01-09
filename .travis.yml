@@ -117,15 +117,14 @@ matrix:
           overwrite: true
           api_key: $GITHUB_TOKEN
           name: "Hulusubs_dl"
-          file: "hulusubs_dl/dist/__main__.exe"
+          file: "hulusubs_dl/dist/hulusubs_dl.exe"
           skip_cleanup: true
           draft: false
           on:
             branch: master
     - os: osx
       language: python
-      python:
-        - 3.8
+      python: "3.8"
       before_install:
         - python3 --version
         - python3 -m pip install --upgrade pip
