@@ -68,7 +68,7 @@ matrix:
         - provider: releases
           api_key: $GITHUB_TOKEN
           name: "Hulusubs_dl"
-          file: "dist/hulusubs_dl_linux"
+          file: "hulusubs_dl/dist/hulusubs_dl_linux"
           skip_cleanup: true
           draft: true
           on:
@@ -103,7 +103,7 @@ matrix:
         - provider: releases
           api_key: $GITHUB_TOKEN
           name: "Hulusubs_dl"
-          file: "dist/hulusubs_dl.exe"
+          file: "hulusubs_dl/dist/__main__.exe"
           skip_cleanup: true
           draft: true
           on:
@@ -132,7 +132,7 @@ matrix:
         - provider: releases
           api_key: $GITHUB_TOKEN
           name: "Hulusubs_dl"
-          file: "dist/hulusubs_dl_osx"
+          file: "hulusubs_dl/dist/hulusubs_dl_osx"
           skip_cleanup: true
           draft: true
           on:
