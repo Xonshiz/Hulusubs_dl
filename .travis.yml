@@ -52,8 +52,10 @@ matrix:
     - os: linux
       language: sh
       python: "3.8"
+      before_install:
+        - "pip install --upgrade pip"
       install:
-        - "python --version"
+        - "python3 --version"
         - "pip install requests"
         - "sudo pip install pyinstaller"
       script:
