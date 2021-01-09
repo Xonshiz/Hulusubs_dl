@@ -16,7 +16,9 @@ jobs:
     - python: 3.8
       dist: xenial
 # command to install dependencies
-install: "pip install -r requirements.txt"
+install:
+  - "pip install -r requirements.txt"
+  - "pip install pyinstaller"
 # command to run tests
 script:
 - cd hulusubs_dl
