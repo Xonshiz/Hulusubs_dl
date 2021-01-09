@@ -70,7 +70,7 @@ matrix:
           name: "Hulusubs_dl"
           file: "hulusubs_dl/dist/hulusubs_dl_linux"
           skip_cleanup: true
-          draft: true
+          draft: false
           on:
             tags: true
             branch: master
@@ -90,11 +90,6 @@ matrix:
         - cd hulusubs_dl
         - python __main__.py --version
         - pyinstaller --onefile --hidden-import=queue "__main__.py"
-        - cd dist
-        - dir -s
-        - ren "__main__.exe" "hulusubs_dl.exe"
-        - dir -s
-        - cd ..
         - cd ..
       notifications:
         email:
@@ -105,7 +100,7 @@ matrix:
           name: "Hulusubs_dl"
           file: "hulusubs_dl/dist/__main__.exe"
           skip_cleanup: true
-          draft: true
+          draft: false
           on:
             tags: true
             branch: master
@@ -134,7 +129,7 @@ matrix:
           name: "Hulusubs_dl"
           file: "hulusubs_dl/dist/hulusubs_dl_osx"
           skip_cleanup: true
-          draft: true
+          draft: false
           on:
             tags: true
             branch: master
