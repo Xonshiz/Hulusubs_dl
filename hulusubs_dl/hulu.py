@@ -57,7 +57,7 @@ class Hulu:
                     video_metadata = dict(hulu_api.get_eab_id_metadata(eab_id, cookie_value, language)).get('items', {})
                     logging.debug('\n----\nvideo_metadata: {0}\n----\n'.format(video_metadata))
                     video_metadata = dict(list(video_metadata)[0])
-                    series_name = utils.get_clean_path_name(video_metadata.get('series_name', "No Name Found"))
+                    series_name = utils.get_clean_path_name(video_metadata.get('series_name', video_metadata.get("name", "No Name Found")))
                     season_number = video_metadata.get('season', "01")
                     episode_number = video_metadata.get('number', "01")
                     file_name = '{0} - S{1}E{2} [{3} Sub].{4}'.format(series_name, season_number, episode_number,
