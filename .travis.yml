@@ -93,6 +93,7 @@ matrix:
         - cd dist
         - dir -s
         - cd ..
+        - cd ..
       notifications:
         email:
           - xonshiz@gmail.com
