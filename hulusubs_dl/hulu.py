@@ -12,6 +12,10 @@ import logging
 
 class Hulu:
     def __init__(self, url, cookie_value, language, extension, download_location, proxy):
+        if "/movie/" in url:
+            eab_id_matches = str(url).split('/movie/')[-1].split('-')[-5:]
+            if eab_id_matches:
+                url = 'https://www.hulu.com/watch/{0}'.format('-'.join(eab_id_matches))
         if "/series/" in url:
             self.show_link(url, cookie_value, language, extension, download_location, proxy)
         elif "/watch/" in url:
@@ -83,10 +87,10 @@ class Hulu:
             return False
 
     def show_link(self, url, cookie_value, language, extension, download_location, proxy=None):
-        eab_id_matches = re.findall(r'-([0-9A-Za-z]+)', str(url).split('/series/')[-1])
+        # We need just the EAB_ID, which is typically split via - and is of 5 words from end.
+        eab_id_matches = str(url).split('/series/')[-1].split('-')[-5:]
         logging.debug('eab_id_matches: {0}'.format(eab_id_matches))
         if eab_id_matches and len(eab_id_matches) > 1:
-            eab_id_matches.pop(0)
             eab_id = '-'.join(eab_id_matches)
             logging.debug('initial eab_id: {0}'.format(eab_id))
             series_metadata = {}

@@ -36,3 +36,6 @@ hulusubs_dl/build/*
 hulusubs_dl/dist/*
 hulusubs_dl/dev_test/*
 hulusubs_dl/dev_test/main_test.py
+hulusubs_dl/Hulusubs_dl_Error_Log.log
+*.log
+venv/*
