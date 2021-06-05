@@ -14,7 +14,7 @@ matrix:
         - "wget https://files.pythonhosted.org/packages/1f/f5/b66668d5b18b03cf75fcb3fa1108a04b22b2e108fed5e99efe9e3214f325/cffi-1.14.5-cp27-cp27m-manylinux1_x86_64.whl"
         - "wget https://files.pythonhosted.org/packages/12/54/706ec35369a8f9dd23e5f62bfe26ef84543e08bbdb6ff5b0772ec1028282/cryptography-3.3.1-cp27-cp27m-manylinux1_x86_64.whl"
         - "wget https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
-        - "ls"
+        - ls
         - "mkdir /wheels_dir"
         - "pip install --no-index /wheels_dir/*"
         - "python -m OpenSSL.debug"
