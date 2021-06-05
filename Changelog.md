@@ -6,3 +6,5 @@
 - Added Verbose Logging.
 - `#22` was still happening. Verified and fixed it.
 - Updated TravisCI Configs to do a Github Release.
+- Fixed #27
+- Added support to download subtitles of "movies".

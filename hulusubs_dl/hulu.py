@@ -12,6 +12,10 @@ import logging
 
 class Hulu:
     def __init__(self, url, cookie_value, language, extension, download_location, proxy):
+        if "/movie/" in url:
+            eab_id_matches = str(url).split('/movie/')[-1].split('-')[-5:]
+            if eab_id_matches:
+                url = 'https://www.hulu.com/watch/{0}'.format('-'.join(eab_id_matches))
         if "/series/" in url:
             self.show_link(url, cookie_value, language, extension, download_location, proxy)
         elif "/watch/" in url:
@@ -53,7 +57,7 @@ class Hulu:
                     video_metadata = dict(hulu_api.get_eab_id_metadata(eab_id, cookie_value, language)).get('items', {})
                     logging.debug('\n----\nvideo_metadata: {0}\n----\n'.format(video_metadata))
                     video_metadata = dict(list(video_metadata)[0])
-                    series_name = utils.get_clean_path_name(video_metadata.get('series_name', "No Name Found"))
+                    series_name = utils.get_clean_path_name(video_metadata.get('series_name', video_metadata.get("name", "No Name Found")))
                     season_number = video_metadata.get('season', "01")
                     episode_number = video_metadata.get('number', "01")
                     file_name = '{0} - S{1}E{2} [{3} Sub].{4}'.format(series_name, season_number, episode_number,
@@ -83,10 +87,10 @@ class Hulu:
             return False
 
     def show_link(self, url, cookie_value, language, extension, download_location, proxy=None):
-        eab_id_matches = re.findall(r'-([0-9A-Za-z]+)', str(url).split('/series/')[-1])
+        # We need just the EAB_ID, which is typically split via - and is of 5 words from end.
+        eab_id_matches = str(url).split('/series/')[-1].split('-')[-5:]
         logging.debug('eab_id_matches: {0}'.format(eab_id_matches))
         if eab_id_matches and len(eab_id_matches) > 1:
-            eab_id_matches.pop(0)
             eab_id = '-'.join(eab_id_matches)
             logging.debug('initial eab_id: {0}'.format(eab_id))
             series_metadata = {}

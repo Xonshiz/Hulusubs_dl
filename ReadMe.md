@@ -60,6 +60,9 @@ Make sure you've gone through [`#Prerequisites`](#prerequisite) and have proper 
 - Copy the "Cookie" value from it. It'll be a very long text value. Copy all of it.
 - Paste that cookie value when the hulusubs_dl asks for it.
 
+According to @IRLPinkiePie , when you copy cookies from firefox, it adds an "ellipse" in the cookie. Be watchful of that.
+More on that here : [Firefox Cookie Issue](https://github.com/Xonshiz/Hulusubs_dl/issues/25#issuecomment-808623911)
+
 Refer to this screenshot for some clarification:
 
 [![N|Solid](https://i.imgur.com/4Z0KOn4.png)](https://i.imgur.com/4Z0KOn4.png)
