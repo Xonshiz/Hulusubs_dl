@@ -75,9 +75,8 @@ class Hulu:
                             download_location + os.sep + series_name + os.sep + season_number)
                         if path_created:
                             if extension == 'srt':
-                                subtitle_content = subtitle_processing.convert_content(subtitle_content.decode('utf-8'))
-                            file_written = utils.create_file_binary_mode(path_created, os.sep + file_name,
-                                                                         subtitle_content.encode('utf-8'))
+                                subtitle_content = subtitle_processing.convert_content(subtitle_content.decode('utf-8')).encode('utf-8')
+                            file_written = utils.create_file_binary_mode(path_created, os.sep + file_name, subtitle_content)
                             if file_written:
                                 return True
                             else:

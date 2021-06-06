@@ -15,8 +15,8 @@ class HuluSubsDl:
     def __init__(self, argv, cwd):
         cookie_file_name = '/.cookie'
         config_file_name = '/.config'
-        supported_languages = ['en', 'es']
-        supported_extensions = ['srt', 'vtt', 'smi', 'ttml']
+        supported_languages = ['en', 'es', 'jp']
+        supported_extensions = ['srt', 'webvtt', 'smi', 'ttml']
         self.max_tries_for_cookie = 5
         cookie_file_data = None
         config_file_data = None
@@ -99,7 +99,10 @@ class HuluSubsDl:
         if not self.subtitle_lang:
             self.subtitle_lang = utils.get_value_from_list(args.subtitle_language[0], supported_languages)
         if not self.subtitle_extension:
-            self.subtitle_extension = utils.get_value_from_list(args.file_extension[0], supported_extensions)
+            self.subtitle_extension = utils.get_value_from_list(args.subtitle_extension[0], supported_extensions)
+        # If user provides VTT, we have to make it webvtt
+        if self.subtitle_extension.lower().strip() == "vtt":
+            self.subtitle_extension = "webvtt"
         if not self.download_location:
             if args.download_directory:
                 self.download_location = args.download_directory[0]
@@ -185,6 +188,8 @@ class HuluSubsDl:
         cookie = None
         while not cookie:
             cookie = input("Paste Hulu Cookie Value : ")
+            # Fix for #25
+            cookie = cookie.replace('\\u2026', '')
         return cookie
 
     @staticmethod

@@ -39,3 +39,4 @@ hulusubs_dl/dev_test/main_test.py
 hulusubs_dl/Hulusubs_dl_Error_Log.log
 *.log
 venv/*
+hulusubs_dl/.DS_Store

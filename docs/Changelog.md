@@ -8,3 +8,5 @@
 - Updated TravisCI Configs to do a Github Release.
 - Fixed #27
 - Added support to download subtitles of "movies".
+- Fix for #29 and #28
+- Fix for #25

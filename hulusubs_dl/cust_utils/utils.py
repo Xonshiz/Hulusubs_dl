@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 from . import path_util
 
-DEFAULT_SUB_EXT = ['vtt', 'ttml', 'smi']
+DEFAULT_SUB_EXT = ['webvtt', 'ttml', 'smi']
 
 
 def get_value_from_list(value, list_object):
@@ -117,9 +117,12 @@ def create_file_binary_mode(file_path, file_name, data_to_write):
         print("Empty data provided for {0}".format(file_name))
         return False
     file_location = path_util.get_abs_path_name(file_path, file_name)
-    with open(file_location, 'wb') as f:
-        f.write(data_to_write)
-        f.flush()
+    try:
+        with open(file_location, 'wb') as f:
+            f.write(data_to_write)
+            f.flush()
+    except Exception as ex:
+        print("Exception Happened while writing: {0}".format(ex))
     return True
 
 
