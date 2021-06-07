@@ -138,3 +138,12 @@ def get_clean_path_name(path_name):
     for cha in '\/*?:"<>|,;\'':
         path_name = path_name.replace(cha, ' -')
     return path_name
+
+
+def get_language_name(lang_code):
+    lang_dict = {
+        'en': 'English',
+        'es': 'Spanish',
+        'jp': 'Japanese'
+    }
+    return lang_dict.get(lang_code, lang_code)

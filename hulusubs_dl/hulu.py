@@ -58,10 +58,12 @@ class Hulu:
                     logging.debug('\n----\nvideo_metadata: {0}\n----\n'.format(video_metadata))
                     video_metadata = dict(list(video_metadata)[0])
                     series_name = utils.get_clean_path_name(video_metadata.get('series_name', video_metadata.get("name", "No Name Found")))
+                    is_movie = True if video_metadata.get('_type', None) == "movie" else False
                     season_number = video_metadata.get('season', "01")
                     episode_number = video_metadata.get('number', "01")
-                    file_name = '{0} - S{1}E{2} [{3} Sub].{4}'.format(series_name, season_number, episode_number,
-                                                                      language, extension)
+                    file_name = '{0} - S{1}E{2} [{3} Sub].{4}'.format(series_name, season_number, episode_number, utils.get_language_name(language), extension)
+                    if is_movie:
+                        file_name = '{0} [{1} Sub].{2}'.format(series_name, utils.get_language_name(language), extension)
                     logging.debug('\n----\nfile_name: {0}\n----\n'.format(file_name))
                     print("Downloading Subtitle For {0}".format(file_name))
                     selected_extension = transcript_urls.get(extension, None)

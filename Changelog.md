@@ -10,3 +10,5 @@
 - Added support to download subtitles of "movies".
 - Fix for #29 and #28
 - Fix for #25
+- Fix for #31
+- Subtitles will now show proper language names instead of 'en', 'es', etc.
