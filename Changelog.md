@@ -12,3 +12,4 @@
 - Fix for #25
 - Fix for #31
 - Subtitles will now show proper language names instead of 'en', 'es', etc.
+- Fix for path naming issues #31

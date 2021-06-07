@@ -73,8 +73,11 @@ class Hulu:
                         url = str(dict(selected_extension).get(language, None)).strip()
                         logging.debug('subtitle url eab_id: {0}'.format(url))
                         subtitle_content = browser_instance.get_request(url, cookie_value, text_only=True)
-                        path_created = path_util.create_paths(
-                            download_location + os.sep + series_name + os.sep + season_number)
+                        path_created = False
+                        if is_movie:
+                            path_created = path_util.create_paths(download_location + os.sep + series_name)
+                        else:
+                            path_created = path_util.create_paths(download_location + os.sep + series_name + os.sep + season_number)
                         if path_created:
                             if extension == 'srt':
                                 subtitle_content = subtitle_processing.convert_content(subtitle_content.decode('utf-8')).encode('utf-8')
