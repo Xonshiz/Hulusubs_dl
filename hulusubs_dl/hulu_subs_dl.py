@@ -13,8 +13,9 @@ from .hulu import Hulu
 
 class HuluSubsDl:
     def __init__(self, argv, cwd):
-        cookie_file_name = '/.cookie'
-        config_file_name = '/.config'
+        config_path_home = os.path.expanduser("~/.config/hulu_subs_dl/")
+        cookie_file_name = 'cookie'
+        config_file_name = 'config'
         supported_languages = ['en', 'es', 'jp']
         supported_extensions = ['srt', 'webvtt', 'smi', 'ttml']
         self.max_tries_for_cookie = 5
@@ -55,7 +56,7 @@ class HuluSubsDl:
         if args.make_config:
             config_object = self.get_config_file_data()
             config_data = self.ask_config_file_data(config_object)
-            file_written = utils.create_file(cwd, config_file_name, config_data)
+            file_written = utils.create_file(config_path_home, config_file_name, config_data)
             if not file_written:
                 print("Couldn't write config file.")
             sys.exit(0)
@@ -70,14 +71,14 @@ class HuluSubsDl:
 
         if not skip_config:
             print("Reading Configuration File.")
-            if path_util.file_exists(cwd, config_file_name):
-                config_file_data = eval(utils.read_file_data(cwd, config_file_name))
+            if path_util.file_exists(config_path_home, config_file_name):
+                config_file_data = eval(utils.read_file_data(config_path_home, config_file_name))
                 logging.debug("\n----\nconfig_file_data: {0}\n----\n".format(config_file_data))
             else:
                 # ask config data from user
                 config_object = self.get_config_file_data()
                 config_data = self.ask_config_file_data(config_object)
-                file_written = utils.create_file(cwd, config_file_name, config_data)
+                file_written = utils.create_file(config_path_home, config_file_name, config_data)
                 if file_written:
                     config_file_data = config_data
             if not config_file_data:
@@ -110,13 +111,13 @@ class HuluSubsDl:
                 while not self.download_location:
                     self.download_location = input("Enter Download Location : ")
 
-        if not args.set_cookie and path_util.file_exists(cwd, cookie_file_name):
-            cookie_file_data = utils.read_file_data(cwd, cookie_file_name)
+        if not args.set_cookie and path_util.file_exists(config_path_home, cookie_file_name):
+            cookie_file_data = utils.read_file_data(config_path_home, cookie_file_name)
             if not cookie_file_data:
                 logging.debug("No Cookie Found")
         else:
             cookie_from_user = self.get_cookie_from_user()
-            cookie_written = utils.create_file(cwd, cookie_file_name,
+            cookie_written = utils.create_file(config_path_home, cookie_file_name,
                                                cookie_from_user if not args.set_cookie else args.set_cookie[0])
             if cookie_written:
                 cookie_file_data = cookie_from_user
@@ -125,7 +126,7 @@ class HuluSubsDl:
             current_try = 1
             while not cookie_file_data and self.max_tries_for_cookie >= current_try:
                 cookie_from_user = self.get_cookie_from_user()
-                cookie_written = utils.create_file(cwd, cookie_file_name, cookie_from_user)
+                cookie_written = utils.create_file(config_path_home, cookie_file_name, cookie_from_user)
                 if cookie_written:
                     cookie_file_data = cookie_from_user
                 else:
@@ -170,7 +171,7 @@ class HuluSubsDl:
                 config[conf] = 5 if not config[conf] else config[conf]
             elif conf == "download_location":
                 config[conf] = input("Value For {0}: ".format(conf))
-                config[conf] = os.getcwd() if not config[conf] else config[conf]
+                config[conf] = config_path_home if not config[conf] else config[conf]
             elif conf == "subtitle_lang":
                 config[conf] = input("Value For {0}: ".format(conf))
                 config[conf] = 'en' if not config[conf] else config[conf]

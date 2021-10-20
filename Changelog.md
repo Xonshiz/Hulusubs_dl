@@ -13,3 +13,4 @@
 - Fix for #31
 - Subtitles will now show proper language names instead of 'en', 'es', etc.
 - Fix for path naming issues #31
+- Change config file location to ~/.config and add check to utils.createFile() to see if directory exists. Creates directoy if not exists

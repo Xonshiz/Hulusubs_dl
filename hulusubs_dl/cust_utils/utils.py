@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import os
+
 from . import path_util
 
 DEFAULT_SUB_EXT = ['webvtt', 'ttml', 'smi']
@@ -106,6 +108,8 @@ def create_file(file_path, file_name, data_to_write):
         print("Empty data provided for {0}".format(file_name))
         return False
     file_location = path_util.get_abs_path_name(file_path, file_name)
+    if not os.path.isdir(file_path):
+        path_util.create_paths(file_path)
     with open(file_location, 'w') as f:
         f.write(data_to_write)
         f.flush()
